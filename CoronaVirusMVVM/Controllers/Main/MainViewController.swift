@@ -63,18 +63,29 @@ class MainViewController: UIViewController {
 
             if let global = global {
                 self.globalVM = GlobalViewModel(global)
-
+                let updated = self.getDate(time: Double(self.globalVM.updated))
                 DispatchQueue.main.async {
                     self.worldCasesLabel.text = "Cases: \(String(describing: self.globalVM.active))"
                     self.worldDeathsLabel.text = "Deaths: \(self.globalVM.deaths)"
                     self.worldRecoveredLabel.text = "Recovered: \(self.globalVM.recovered)"
-                    self.worldUpdatedLabel.text = "Active: \(self.globalVM.updated)"
+                    self.worldUpdatedLabel.text = "Updated at: \(updated)"
                     self.worldActiveLabel.text = "Active: \(self.globalVM.active)"
                     self.worldAffectedCountriesLabel.text = "Affected Countries: \(self.globalVM.affectedCountries)"
                 }
             }
         }
 
+    }
+
+    //getDate(time: self.globalVM.updated)
+
+    func getDate(time: Double) -> String {
+        let date = Double(time / 1000)
+
+        let format = DateFormatter()
+        format.dateFormat = "MM - dd - YYYY hh:mm a"
+        return format.string(from: Date(timeIntervalSince1970:
+            TimeInterval(exactly: date)!))
     }
 }
 
@@ -108,7 +119,6 @@ extension MainViewController: UITableViewDataSource {
             fatalError("MainTableViewCell not found")
         }
         let countryVM = self.countryListVM.countryAtIndex(indexPath.row)
-        countryVM.country.sorted()
         cell.countryLabel.text = countryVM.country
         cell.deathsLabel.text = "Deaths: \(countryVM.deaths)"
         cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
