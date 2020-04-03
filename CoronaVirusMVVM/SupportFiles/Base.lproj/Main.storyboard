@@ -150,6 +150,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="UVg-5a-ZKz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ivo-uG-zgI">
                                 <rect key="frame" x="124" y="303" width="166.5" height="290"/>
                                 <subviews>
@@ -200,7 +203,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Ivo-uG-zgI" firstAttribute="centerY" secondItem="f3z-y7-WB2" secondAttribute="centerY" id="Fji-GV-KML"/>
+                            <constraint firstItem="UVg-5a-ZKz" firstAttribute="leading" secondItem="odc-xk-Pgg" secondAttribute="leading" id="Gpn-0z-a5y"/>
                             <constraint firstItem="Ivo-uG-zgI" firstAttribute="centerX" secondItem="f3z-y7-WB2" secondAttribute="centerX" id="gXk-N8-wxa"/>
+                            <constraint firstItem="odc-xk-Pgg" firstAttribute="bottom" secondItem="UVg-5a-ZKz" secondAttribute="bottom" id="q5x-n7-cgH"/>
+                            <constraint firstItem="UVg-5a-ZKz" firstAttribute="top" secondItem="odc-xk-Pgg" secondAttribute="top" id="uim-Sc-AJB"/>
+                            <constraint firstItem="odc-xk-Pgg" firstAttribute="trailing" secondItem="UVg-5a-ZKz" secondAttribute="trailing" id="wsB-gn-4gb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="odc-xk-Pgg"/>
                     </view>
@@ -215,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nuh-Xa-Zc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1739.1304347826087" y="106.47321428571428"/>
+            <point key="canvasLocation" x="1894" y="113"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ng2-Cu-bAS">
@@ -236,4 +243,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder" width="30" height="30"/>
+    </resources>
 </document>

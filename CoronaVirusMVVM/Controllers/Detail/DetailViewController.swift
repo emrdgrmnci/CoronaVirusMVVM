@@ -23,9 +23,18 @@ class DetailViewController: UIViewController {
     var todayCases = Int()
     var todayDeaths = Int()
     var criticalCases = Int()
+    var countryName = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = countryName
+
+        confirmedCasesLabel.text = "Confirmed Cases: \(confirmedCases)"
+        totalDeathsLabel.text = "Total Deaths: \(totalDeaths)"
+        totalRecoveredLabel.text = "Total Recovered: \(totalRecovered)"
+        todayCasesLabel.text = "Today Cases: \(todayCases)"
+        todayDeathsLabel.text = "Today Deaths: \(todayDeaths)"
+        criticalCasesLabel.text = "Critical Cases: \(criticalCases)"
     }
 }

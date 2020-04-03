@@ -24,26 +24,16 @@ class MainViewController: UIViewController {
     private var countryListVM: CountryListViewModel!
     private var globalVM: GlobalViewModel!
 
-    //       init(globalVM: GlobalViewModel) {
-    //           self.globalVM = globalVM
-    //        super.init(nibName: nil, bundle: nil)
-    //       }
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        globalVM = self.globalVM.getAllCases()
+
         tableView.delegate = self
         tableView.dataSource = self
 
         getAllCases()
         getAllCountries()
-        //        getWorld()
 
     }
-
-    //    private func getWorld() {
-    //    }
 
     func getAllCountries() {
 
@@ -86,20 +76,6 @@ class MainViewController: UIViewController {
     }
 }
 
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
-
 extension MainViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -128,16 +104,20 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        ////        let countryVM = self.countryListVM.countryAtIndex(indexPath.row)
-        //        let globalVM = self.globalListVM.allCase()
-        //
-        //
-        //              let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //              guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-        //        detailVC.confirmedCases = globalVM.cases
-        //        detailVC.criticalCases = globalVM.
-        //        detailVC.confirmedCases = globalVM.cases
-        //        detailVC.confirmedCases = globalVM.cases
-        //        detailVC.confirmedCases = globalVM.cases
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+
+        let countryDetailVM = self.countryListVM.countryAtIndex(indexPath.row)
+
+        detailVC.countryName = countryDetailVM.country
+        detailVC.confirmedCases = countryDetailVM.cases
+        detailVC.criticalCases  = countryDetailVM.critical
+        detailVC.todayCases =     countryDetailVM.todayCases
+        detailVC.todayDeaths =    countryDetailVM.todayDeaths
+        detailVC.totalRecovered = countryDetailVM.recovered
+        detailVC.totalDeaths =    countryDetailVM.deaths
+
+
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
