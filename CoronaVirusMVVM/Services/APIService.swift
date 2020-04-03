@@ -22,7 +22,6 @@ class APIService {
                 let countryList = try? JSONDecoder().decode([Country].self, from: data)
                 if let countryList = countryList {
                 completion(countryList)
-                    print(countryList)
                 }
             }
 

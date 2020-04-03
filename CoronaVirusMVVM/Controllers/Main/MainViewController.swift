@@ -24,6 +24,8 @@ class MainViewController: UIViewController {
     private var countryListVM: CountryListViewModel!
     private var globalVM: GlobalViewModel!
 
+    var countryArray = [Country]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,7 +48,7 @@ class MainViewController: UIViewController {
         APIService().getCountries(url: url) { (countries) in
 
             if let countries = countries {
-                self.countryListVM = CountryListViewModel(countryList: countries)
+                self.countryListVM = CountryListViewModel(countryList: countries.reversed())
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -119,6 +121,7 @@ extension MainViewController: UITableViewDataSource {
             fatalError("MainTableViewCell not found")
         }
         let countryVM = self.countryListVM.countryAtIndex(indexPath.row)
+//        let countries = [self.countryListVM.countryList[indexPath.row].country]
         cell.countryLabel.text = countryVM.country
         cell.deathsLabel.text = "Deaths: \(countryVM.deaths)"
         cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
