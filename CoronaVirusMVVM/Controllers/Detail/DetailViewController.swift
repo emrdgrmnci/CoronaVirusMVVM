@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var confirmedCasesLabel: UILabel!
     @IBOutlet weak var totalDeathsLabel: UILabel!
     @IBOutlet weak var totalRecoveredLabel: UILabel!
@@ -24,11 +26,14 @@ class DetailViewController: UIViewController {
     var todayDeaths = Int()
     var criticalCases = Int()
     var countryName = String()
+    var backgroundImage = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = countryName
+        backgroundImageView.image
+            = backgroundImage.image
 
         confirmedCasesLabel.text = "Confirmed Cases: \(confirmedCases)"
         totalDeathsLabel.text = "Total Deaths: \(totalDeaths)"

@@ -19,15 +19,15 @@
                                 <rect key="frame" x="0.0" y="300" width="414" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainTableViewCell" rowHeight="74" id="98w-R8-ghj" customClass="MainTableViewCell" customModule="CoronaVirusMVVM" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainTableViewCell" rowHeight="74" id="98w-R8-ghj" customClass="MainTableViewCell" customModule="CoronaVirusMVVM" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="98w-R8-ghj" id="d3Y-YR-ePX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GpJ-e8-nPY">
-                                                    <rect key="frame" x="12" y="7" width="390" height="60"/>
+                                                    <rect key="frame" x="12" y="7" width="346" height="60"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eGY-no-csl">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -37,7 +37,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmT-DO-sp4">
-                                                            <rect key="frame" x="68" y="0.0" width="219" height="60"/>
+                                                            <rect key="frame" x="68" y="0.0" width="175" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="215" id="RG8-m9-HCI"/>
                                                                 <constraint firstAttribute="height" constant="60" id="ggS-Xm-Yau"/>
@@ -47,7 +47,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwG-lq-g1p">
-                                                            <rect key="frame" x="295" y="0.0" width="95" height="60"/>
+                                                            <rect key="frame" x="251" y="0.0" width="95" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="95" id="1MY-dT-WHV"/>
                                                                 <constraint firstAttribute="height" constant="60" id="qap-2O-GNs"/>
@@ -153,6 +153,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="UVg-5a-ZKz">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
+                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRy-md-Wh9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ivo-uG-zgI">
                                 <rect key="frame" x="124" y="303" width="166.5" height="290"/>
                                 <subviews>
@@ -174,7 +178,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Recovered:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2M-yL-uQy">
                                                 <rect key="frame" x="0.0" y="105" width="166.5" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.12909936396025595" green="0.5" blue="0.22513455760884332" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today Cases:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2W-E8-2tt">
@@ -200,18 +204,23 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="yRy-md-Wh9" firstAttribute="leading" secondItem="odc-xk-Pgg" secondAttribute="leading" id="05v-fh-dzI"/>
                             <constraint firstItem="Ivo-uG-zgI" firstAttribute="centerY" secondItem="f3z-y7-WB2" secondAttribute="centerY" id="Fji-GV-KML"/>
                             <constraint firstItem="UVg-5a-ZKz" firstAttribute="leading" secondItem="odc-xk-Pgg" secondAttribute="leading" id="Gpn-0z-a5y"/>
+                            <constraint firstItem="odc-xk-Pgg" firstAttribute="trailing" secondItem="yRy-md-Wh9" secondAttribute="trailing" id="gOZ-fJ-DqL"/>
                             <constraint firstItem="Ivo-uG-zgI" firstAttribute="centerX" secondItem="f3z-y7-WB2" secondAttribute="centerX" id="gXk-N8-wxa"/>
+                            <constraint firstItem="yRy-md-Wh9" firstAttribute="top" secondItem="odc-xk-Pgg" secondAttribute="top" id="q1V-N3-FJi"/>
                             <constraint firstItem="odc-xk-Pgg" firstAttribute="bottom" secondItem="UVg-5a-ZKz" secondAttribute="bottom" id="q5x-n7-cgH"/>
+                            <constraint firstItem="odc-xk-Pgg" firstAttribute="bottom" secondItem="yRy-md-Wh9" secondAttribute="bottom" id="tlb-cW-d9k"/>
                             <constraint firstItem="UVg-5a-ZKz" firstAttribute="top" secondItem="odc-xk-Pgg" secondAttribute="top" id="uim-Sc-AJB"/>
                             <constraint firstItem="odc-xk-Pgg" firstAttribute="trailing" secondItem="UVg-5a-ZKz" secondAttribute="trailing" id="wsB-gn-4gb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="odc-xk-Pgg"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="UVg-5a-ZKz" id="KtX-R0-fIS"/>
                         <outlet property="confirmedCasesLabel" destination="65b-sy-0Uj" id="wCw-XM-HGN"/>
                         <outlet property="criticalCasesLabel" destination="hj7-St-the" id="6AH-Ub-AvG"/>
                         <outlet property="todayCasesLabel" destination="U2W-E8-2tt" id="kZA-6C-fep"/>

@@ -27,6 +27,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "COVID-19"
+
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -78,6 +80,24 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
 
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let plateLabel = UILabel()
+        plateLabel.frame = CGRect(x: 10, y: 20, width: 320, height: 20)
+        plateLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        plateLabel.textColor = .systemGray
+        plateLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+
+        let headerView = UIView()
+        headerView.addSubview(plateLabel)
+
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Countries and Deaths"
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.countryListVM == nil ? 0 : self.countryListVM.numberOfRowsInSection(section)
     }
@@ -109,6 +129,7 @@ extension MainViewController: UITableViewDelegate {
 
         let countryDetailVM = self.countryListVM.countryAtIndex(indexPath.row)
 
+        detailVC.backgroundImage.sd_setImage(with: URL(string: "\(String(describing: countryDetailVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
         detailVC.countryName = countryDetailVM.country
         detailVC.confirmedCases = countryDetailVM.cases
         detailVC.criticalCases  = countryDetailVM.critical
