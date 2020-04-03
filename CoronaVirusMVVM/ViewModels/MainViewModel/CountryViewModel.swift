@@ -9,7 +9,7 @@
 import Foundation
 
 struct CountryListViewModel {
-    let countryList: [Country]
+    var countryList: [Country]
 }
 
 extension CountryListViewModel {

@@ -108,6 +108,7 @@ extension MainViewController: UITableViewDataSource {
             fatalError("MainTableViewCell not found")
         }
         let countryVM = self.countryListVM.countryAtIndex(indexPath.row)
+        countryVM.country.sorted()
         cell.countryLabel.text = countryVM.country
         cell.deathsLabel.text = "Deaths: \(countryVM.deaths)"
         cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
