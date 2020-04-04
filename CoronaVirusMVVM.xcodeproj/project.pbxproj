@@ -225,7 +225,7 @@
 				47F70FBF24360A6900DC85D2 /* Sources */,
 				47F70FC024360A6900DC85D2 /* Frameworks */,
 				47F70FC124360A6900DC85D2 /* Resources */,
-				26F249FAF3A3D4C85F5F5192 /* [CP] Embed Pods Frameworks */,
+				25C5A339434DF82967C029D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,7 +284,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		26F249FAF3A3D4C85F5F5192 /* [CP] Embed Pods Frameworks */ = {
+		25C5A339434DF82967C029D4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -494,6 +494,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CoronaVirusMVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

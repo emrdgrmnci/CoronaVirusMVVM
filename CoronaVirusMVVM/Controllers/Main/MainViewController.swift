@@ -23,6 +23,8 @@ class MainViewController: UIViewController {
     private var countryListVM: CountryListViewModel!
     private var globalVM: GlobalViewModel!
 
+    var countryArray = [Country]()
+  
     // MARK: - View's Lifecycle
 
     override func viewDidLoad() {
@@ -53,7 +55,7 @@ extension MainViewController {
             guard let self = self else { return }
 
             if let countries = countries {
-                self.countryListVM = CountryListViewModel(countryList: countries)
+                self.countryListVM = CountryListViewModel(countryList: countries.reversed())
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -71,18 +73,30 @@ extension MainViewController {
 
             if let global = global {
                 self.globalVM = GlobalViewModel(globalInfo: global)
-
+                let updated = self.getDate(time: Double(self.globalVM.updated))
+              
                 DispatchQueue.main.async {
                     self.worldCasesLabel.text = "Cases: \(String(describing: self.globalVM.active))"
                     self.worldDeathsLabel.text = "Deaths: \(self.globalVM.deaths)"
                     self.worldRecoveredLabel.text = "Recovered: \(self.globalVM.recovered)"
-                    self.worldUpdatedLabel.text = "Active: \(self.globalVM.updated)"
+                    self.worldUpdatedLabel.text = "Updated at: \(updated)"
                     self.worldActiveLabel.text = "Active: \(self.globalVM.active)"
                     self.worldAffectedCountriesLabel.text = "Affected Countries: \(self.globalVM.affectedCountries)"
                 }
             }
         }
 
+    }
+
+    //getDate(time: self.globalVM.updated)
+
+    func getDate(time: Double) -> String {
+        let date = Double(time / 1000)
+
+        let format = DateFormatter()
+        format.dateFormat = "MM - dd - YYYY hh:mm a"
+        return format.string(from: Date(timeIntervalSince1970:
+            TimeInterval(exactly: date)!))
     }
 }
 
