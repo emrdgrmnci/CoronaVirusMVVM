@@ -8,14 +8,6 @@
 
 import Foundation
 
-//struct GlobalListViewModel {
-//    let globalList: Global
-//
-//    func allCase() -> GlobalViewModel {
-//        return GlobalViewModel(globalInfo: globalList)
-//    }
-//}
-
 struct GlobalViewModel {
      let globalInfo: Global
 
@@ -25,29 +17,28 @@ struct GlobalViewModel {
 }
 
 extension GlobalViewModel {
-    init(_ globalInfo: Global) {
-        self.globalInfo = globalInfo
-    }
-}
 
-extension GlobalViewModel {
     var active: Int {
-        return self.globalInfo.active!
+        return globalInfo.active!
     }
+
     var affectedCountries: Int {
-        return self.globalInfo.affectedCountries!
+        return globalInfo.affectedCountries!
     }
+
     var cases: Int {
-        return self.globalInfo.cases!
+        return globalInfo.cases!
     }
+
     var deaths: Int {
-        return self.globalInfo.deaths!
+        return globalInfo.deaths!
     }
+
     var recovered: Int {
-        return self.globalInfo.recovered!
+        return globalInfo.recovered!
     }
+
     var updated: Int {
-        return self.globalInfo.updated!
+        return globalInfo.updated!
     }
 }
-

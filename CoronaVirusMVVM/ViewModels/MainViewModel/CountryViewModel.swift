@@ -9,66 +9,67 @@
 import Foundation
 
 struct CountryListViewModel {
-    var countryList: [Country]
-}
 
-extension CountryListViewModel {
-    var numberOfSections: Int {
-        return 1
-    }
+    var countryList: [Country]
+
+    // MARK: - TableView Helpers
 
     func numberOfRowsInSection(_ section: Int) -> Int {
-        return self.countryList.count
+        return countryList.count
     }
 
     func countryAtIndex(_ index: Int) -> CountryViewModel {
-        let country = self.countryList[index]
-    return CountryViewModel(countryInfo: country)
+        return CountryViewModel(countryInfo: countryList[index])
     }
 }
 
 struct CountryViewModel {
-     let countryInfo: Country
-}
 
-extension CountryViewModel {
-    init(_ countryInfo: Country) {
-        self.countryInfo = countryInfo
-    }
-}
+    let countryInfo: Country
 
-extension CountryViewModel {
+    // MARK: - Helpers
+
     var country: String {
-        return self.countryInfo.country!
+        return countryInfo.country!
     }
+
     var cases: Int {
-        return self.countryInfo.cases!
+        return countryInfo.cases!
     }
+
     var todayCases: Int {
-        return self.countryInfo.todayCases!
+        return countryInfo.todayCases!
     }
+
     var deaths: Int {
-        return self.countryInfo.deaths!
+        return countryInfo.deaths!
     }
+
     var todayDeaths: Int {
-        return self.countryInfo.todayDeaths!
+        return countryInfo.todayDeaths!
     }
+
     var recovered: Int {
-        return self.countryInfo.recovered!
+        return countryInfo.recovered!
     }
+
     var active: Int {
-        return self.countryInfo.active!
+        return countryInfo.active!
     }
+
     var critical: Int {
-        return self.countryInfo.critical!
+        return countryInfo.critical!
     }
+
     var casesPerOneMillion: Double {
-        return self.countryInfo.casesPerOneMillion!
+        return countryInfo.casesPerOneMillion!
     }
+
     var deathsPerOneMillion: Double {
-        return self.countryInfo.deathsPerOneMillion!
+        return countryInfo.deathsPerOneMillion!
     }
+
     var countryFlag: String {
-        return (self.countryInfo.countryInfo?.flag!)!
+        return (countryInfo.countryInfo?.flag)!
      }
 }
