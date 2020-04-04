@@ -52,13 +52,13 @@ extension MainViewController {
         let url = URL(string: "https://corona.lmao.ninja/countries?sort=country")!
 
         APIService().getCountries(url: url) { [weak self] countries in
-            guard let self = self else { return }
+            guard let self = self,
+                let countries = countries else { return }
 
-            if let countries = countries {
-                self.countryListVM = CountryListViewModel(countryList: countries.reversed())
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+            self.countryListVM = CountryListViewModel(countryList: countries.reversed())
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
 
