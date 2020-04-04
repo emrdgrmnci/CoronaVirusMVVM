@@ -1,7 +1,7 @@
 Purpose of the project
 ======================
 
-:earth_africa: This is the demo app which has a list of infected by COVID-19 :mask:
+:earth_africa: This is the demo app which has a list of infected countries by COVID-19 :mask:
 
 #### Powered by [NovelCovid](https://github.com/NovelCOVID/API) :star: 
 
