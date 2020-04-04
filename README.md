@@ -1,3 +1,5 @@
+# Corona Tracker Application [![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)]() [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)]()
+
 Purpose of the project
 ======================
 
@@ -13,6 +15,7 @@ Purpose of the project
 
 * [Swift 5](https://github.com/apple/swift)
 
+* [SDWebImage](https://github.com/SDWebImage/SDWebImage)
 
 Find this repo useful?
 ======================
