@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
     private var globalVM: GlobalViewModel!
 
     var countryArray = [Country]()
+    var isSearching = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,14 @@ class MainViewController: UIViewController {
 
         getAllCases()
         getAllCountries()
+        setupNavigationBar()
+    }
 
+    func setupNavigationBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
 
     func getAllCountries() {
@@ -62,7 +70,6 @@ class MainViewController: UIViewController {
         let url = URL(string: "https://corona.lmao.ninja/all")!
 
         APIService().getGlobalCases(url: url) { (global) in
-
             if let global = global {
                 self.globalVM = GlobalViewModel(global)
                 let updated = self.getDate(time: Double(self.globalVM.updated))
@@ -95,14 +102,14 @@ extension MainViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        let plateLabel = UILabel()
-        plateLabel.frame = CGRect(x: 10, y: 20, width: 320, height: 20)
-        plateLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        plateLabel.textColor = .systemGray
-        plateLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        let countryTitleLabel = UILabel()
+        countryTitleLabel.frame = CGRect(x: 10, y: 20, width: 320, height: 20)
+        countryTitleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        countryTitleLabel.textColor = .systemGray
+        countryTitleLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
 
         let headerView = UIView()
-        headerView.addSubview(plateLabel)
+        headerView.addSubview(countryTitleLabel)
 
         return headerView
     }
@@ -112,7 +119,12 @@ extension MainViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.countryListVM == nil ? 0 : self.countryListVM.numberOfRowsInSection(section)
+
+        if isSearching {
+            return countryArray.count
+        } else {
+            return self.countryListVM == nil ? 0 : self.countryListVM.numberOfRowsInSection(section)
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -120,11 +132,18 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as? MainTableViewCell else {
             fatalError("MainTableViewCell not found")
         }
+
         let countryVM = self.countryListVM.countryAtIndex(indexPath.row)
-//        let countries = [self.countryListVM.countryList[indexPath.row].country]
-        cell.countryLabel.text = countryVM.country
-        cell.deathsLabel.text = "Deaths: \(countryVM.deaths)"
-        cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
+        if isSearching {
+            cell.countryLabel.text = countryArray[indexPath.row].country
+            cell.deathsLabel.text = "Deaths: \(String(describing: countryArray[indexPath.row].deaths))"
+            cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryArray[indexPath.row].countryInfo?.flag))"), placeholderImage: UIImage(named: "placeholder.png"))
+        } else {
+            //        let countries = [self.countryListVM.countryList[indexPath.row].country]
+            cell.countryLabel.text = countryVM.country
+            cell.deathsLabel.text = "Deaths: \(countryVM.deaths)"
+            cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
+        }
         return cell
     }
 }
@@ -154,5 +173,18 @@ extension MainViewController: UITableViewDelegate {
 
 
         self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+extension MainViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        isSearching = true
+        countryArray = countryListVM.countryList.filter({$0.country!.prefix(searchText.count) == searchText})
+        tableView.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        tableView.reloadData()
     }
 }
