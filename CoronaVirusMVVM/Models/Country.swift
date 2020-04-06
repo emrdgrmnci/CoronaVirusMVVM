@@ -8,34 +8,35 @@
 
 import Foundation
 
-struct Country : Codable {
-    let country : String?
-    let countryInfo : CountryInfo?
-    let cases : Int?
-    let todayCases : Int?
-    let deaths : Int?
-    let todayDeaths : Int?
-    let recovered : Int?
-    let active : Int?
-    let critical : Int?
-    let casesPerOneMillion : Double?
-    let deathsPerOneMillion : Double?
-    let updated : Int?
+struct Country: Codable {
+
+    let country: String?
+    let countryInfo: CountryInfo?
+    let cases: Int?
+    let todayCases: Int?
+    let deaths: Int?
+    let todayDeaths: Int?
+    let recovered: Int?
+    let active: Int?
+    let critical: Int?
+    let casesPerOneMillion: Double?
+    let deathsPerOneMillion: Double?
+    let updated: Int?
 
     enum CodingKeys: String, CodingKey {
 
-        case country = "country"
-        case countryInfo = "countryInfo"
-        case cases = "cases"
-        case todayCases = "todayCases"
-        case deaths = "deaths"
-        case todayDeaths = "todayDeaths"
-        case recovered = "recovered"
-        case active = "active"
-        case critical = "critical"
-        case casesPerOneMillion = "casesPerOneMillion"
-        case deathsPerOneMillion = "deathsPerOneMillion"
-        case updated = "updated"
+        case country
+        case countryInfo
+        case cases
+        case todayCases
+        case deaths
+        case todayDeaths
+        case recovered
+        case active
+        case critical
+        case casesPerOneMillion
+        case deathsPerOneMillion
+        case updated
     }
 
     init(from decoder: Decoder) throws {
@@ -53,26 +54,25 @@ struct Country : Codable {
         deathsPerOneMillion = try values.decodeIfPresent(Double.self, forKey: .deathsPerOneMillion)
         updated = try values.decodeIfPresent(Int.self, forKey: .updated)
     }
-
 }
 
+struct CountryInfo: Codable {
 
-struct CountryInfo : Codable {
-    let _id : Int?
-    let iso2 : String?
-    let iso3 : String?
-    let lat : Double?
-    let long : Double?
-    let flag : String?
+    let _id: Int?
+    let iso2: String?
+    let iso3: String?
+    let lat: Double?
+    let long: Double?
+    let flag: String?
 
     enum CodingKeys: String, CodingKey {
 
-        case _id = "_id"
-        case iso2 = "iso2"
-        case iso3 = "iso3"
-        case lat = "lat"
-        case long = "long"
-        case flag = "flag"
+        case _id
+        case iso2
+        case iso3
+        case lat
+        case long
+        case flag
     }
 
     init(from decoder: Decoder) throws {
@@ -86,4 +86,3 @@ struct CountryInfo : Codable {
     }
 
 }
-

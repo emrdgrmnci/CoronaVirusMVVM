@@ -7,19 +7,18 @@
 //
 
 import UIKit
-import Foundation
 import SDWebImage
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    @IBOutlet weak var worldCasesLabel: UILabel!
-    @IBOutlet weak var worldDeathsLabel: UILabel!
-    @IBOutlet weak var worldRecoveredLabel: UILabel!
-    @IBOutlet weak var worldUpdatedLabel: UILabel!
-    @IBOutlet weak var worldActiveLabel: UILabel!
-    @IBOutlet weak var worldAffectedCountriesLabel: UILabel!
+    @IBOutlet private weak var worldCasesLabel: UILabel!
+    @IBOutlet private weak var worldDeathsLabel: UILabel!
+    @IBOutlet private weak var worldRecoveredLabel: UILabel!
+    @IBOutlet private weak var worldUpdatedLabel: UILabel!
+    @IBOutlet private weak var worldActiveLabel: UILabel!
+    @IBOutlet private weak var worldAffectedCountriesLabel: UILabel!
 
     private var countryListVM: CountryListViewModel!
     private var globalVM: GlobalViewModel!
@@ -27,10 +26,11 @@ class MainViewController: UIViewController {
     var countryArray = [Country]()
     var isSearching = false
 
+    // MARK: - View's Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "COVID-19"
+        title = "COVID-19"
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,20 +46,26 @@ class MainViewController: UIViewController {
         searchController.searchBar.delegate = self
         navigationItem.hidesSearchBarWhenScrolling = true
     }
+}
+
+// MARK: - Requests
+
+extension MainViewController {
 
     func getAllCountries() {
 
-        self.navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.prefersLargeTitles = false
 
         let url = URL(string: "https://corona.lmao.ninja/countries?sort=country")!
 
-        APIService().getCountries(url: url) { (countries) in
+        APIService().getCountries(url: url) { [weak self] countries in
+            guard let self = self,
+                let countries = countries else { return }
 
-            if let countries = countries {
-                self.countryListVM = CountryListViewModel(countryList: countries.reversed())
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+            self.countryListVM = CountryListViewModel(countryList: countries.reversed())
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
 
@@ -69,10 +75,13 @@ class MainViewController: UIViewController {
 
         let url = URL(string: "https://corona.lmao.ninja/all")!
 
-        APIService().getGlobalCases(url: url) { (global) in
+        APIService().getGlobalCases(url: url) { [weak self] global in
+            guard let self = self else { return }
+
             if let global = global {
-                self.globalVM = GlobalViewModel(global)
+                self.globalVM = GlobalViewModel(globalInfo: global)
                 let updated = self.getDate(time: Double(self.globalVM.updated))
+
                 DispatchQueue.main.async {
                     self.worldCasesLabel.text = "Cases: \(String(describing: self.globalVM.active))"
                     self.worldDeathsLabel.text = "Deaths: \(self.globalVM.deaths)"
@@ -97,6 +106,8 @@ class MainViewController: UIViewController {
             TimeInterval(exactly: date)!))
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension MainViewController: UITableViewDataSource {
 
@@ -125,6 +136,7 @@ extension MainViewController: UITableViewDataSource {
         } else {
             return self.countryListVM == nil ? 0 : self.countryListVM.numberOfRowsInSection(section)
         }
+
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -148,6 +160,8 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension MainViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -156,23 +170,24 @@ extension MainViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        routeToDetail(with: indexPath.row)
+    }
+}
+
+// MARK: - Routing
+
+extension MainViewController {
+
+    func routeToDetail(with row: Int) {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
         guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
 
-        let countryDetailVM = self.countryListVM.countryAtIndex(indexPath.row)
+        let countryDetailVM = countryListVM.countryAtIndex(row)
+        detailVC.configure(with: countryDetailVM)
 
-        detailVC.backgroundImage.sd_setImage(with: URL(string: "\(String(describing: countryDetailVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
-        detailVC.countryName = countryDetailVM.country
-        detailVC.confirmedCases = countryDetailVM.cases
-        detailVC.criticalCases  = countryDetailVM.critical
-        detailVC.todayCases =     countryDetailVM.todayCases
-        detailVC.todayDeaths =    countryDetailVM.todayDeaths
-        detailVC.totalRecovered = countryDetailVM.recovered
-        detailVC.totalDeaths =    countryDetailVM.deaths
-
-
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

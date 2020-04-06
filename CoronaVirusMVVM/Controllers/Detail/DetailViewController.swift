@@ -19,27 +19,35 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var todayDeathsLabel: UILabel!
     @IBOutlet weak var criticalCasesLabel: UILabel!
 
-    var confirmedCases = Int()
-    var totalDeaths = Int()
-    var totalRecovered = Int()
-    var todayCases = Int()
-    var todayDeaths = Int()
-    var criticalCases = Int()
-    var countryName = String()
-    var backgroundImage = UIImageView()
+    private var viewModel: CountryViewModel!
+
+    // MARK: - View's Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareView()
+    }
 
-        self.title = countryName
-        backgroundImageView.image
-            = backgroundImage.image
+    // MARK: - Configuration
 
-        confirmedCasesLabel.text = "Confirmed Cases: \(confirmedCases)"
-        totalDeathsLabel.text = "Total Deaths: \(totalDeaths)"
-        totalRecoveredLabel.text = "Total Recovered: \(totalRecovered)"
-        todayCasesLabel.text = "Today Cases: \(todayCases)"
-        todayDeathsLabel.text = "Today Deaths: \(todayDeaths)"
-        criticalCasesLabel.text = "Critical Cases: \(criticalCases)"
+    public func configure(with viewModel: CountryViewModel) {
+        self.viewModel = viewModel
+    }
+
+    // MARK: - Preparation
+
+    private func prepareView() {
+        title = viewModel.country
+
+        let imageURL = URL(string: viewModel.countryFlag)
+        backgroundImageView.sd_setImage(with: imageURL,
+                                        placeholderImage: UIImage(named: "placeholder.png"))
+
+        confirmedCasesLabel.text = "Confirmed Cases: \(viewModel.cases)"
+        totalDeathsLabel.text = "Total Deaths: \(viewModel.deaths)"
+        totalRecoveredLabel.text = "Total Recovered: \(viewModel.recovered)"
+        todayCasesLabel.text = "Today Cases: \(viewModel.todayCases)"
+        todayDeathsLabel.text = "Today Deaths: \(viewModel.todayDeaths)"
+        criticalCasesLabel.text = "Critical Cases: \(viewModel.critical)"
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class APIService {
 
-    func getCountries(url: URL, completion: @escaping ([Country]?) -> ()) {
+    func getCountries(url: URL, completion: @escaping CallBack<[Country]?>) {
 
         URLSession.shared.dataTask(with: url) { data, response, error in
 
@@ -20,16 +20,14 @@ class APIService {
             } else if let data = data {
 
                 let countryList = try? JSONDecoder().decode([Country].self, from: data)
-                if let countryList = countryList {
                 completion(countryList)
-                }
             }
 
         }.resume()
 
     }
 
-    func getGlobalCases(url: URL, completion: @escaping (Global?) -> ()) {
+    func getGlobalCases(url: URL, completion: @escaping CallBack<Global?>) {
 
         URLSession.shared.dataTask(with: url) { data, response, error in
 
