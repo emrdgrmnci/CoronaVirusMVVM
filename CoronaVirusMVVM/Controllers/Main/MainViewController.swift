@@ -11,6 +11,9 @@ import SDWebImage
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var worldWideLabel: UILabel!
+    @IBOutlet weak var coronaImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet private weak var worldCasesLabel: UILabel!
@@ -40,11 +43,23 @@ class MainViewController: UIViewController {
         setupNavigationBar()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        worldWideLabel.text = "Worldwide"
+        tableView.reloadData()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        isSearching = false
+        tableView.reloadData()
+    }
+
     func setupNavigationBar() {
+        navigationController?.navigationBar.isTranslucent = false
         let searchController = UISearchController(searchResultsController: nil)
-        navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
-        navigationItem.hidesSearchBarWhenScrolling = true
+        searchController.searchBar.searchTextField.clearButtonMode = .whileEditing
+        navigationItem.searchController = searchController
+        //        navigationItem.hidesSearchBarWhenScrolling = true
     }
 }
 
@@ -193,18 +208,39 @@ extension MainViewController {
 
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        isSearching = true
+
+        stackView.layoutIfNeeded()
+        stackView.isHidden = true
+        worldWideLabel.text = ""
+        coronaImageView.isHidden = true
+
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5.0).isActive = true
+        tableView.topAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: 10.0).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5.0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5.0).isActive = true
+
+
         countryArray = countryListVM.countryList.filter({$0.country!.prefix(searchText.count) == searchText})
+        isSearching = true
         tableView.reloadData()
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        isSearching = false
-        tableView.reloadData()
+        searchBar.endEditing(true)
+
+        stackView.layoutIfNeeded()
+        stackView.isHidden = false
+        coronaImageView.isHidden = false
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+
+        stackView.layoutIfNeeded()
+        stackView.isHidden = false
+        worldWideLabel.isHidden = false
+        coronaImageView.isHidden = false
         isSearching = false
         tableView.reloadData()
+
     }
 }

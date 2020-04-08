@@ -116,8 +116,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Global" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOQ-Pg-Qdr">
-                                <rect key="frame" x="20" y="91" width="52.5" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Worldwide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOQ-Pg-Qdr">
+                                <rect key="frame" x="20" y="91" width="88.5" height="15"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -144,6 +144,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="wMU-BM-y5A"/>
                     <connections>
+                        <outlet property="coronaImageView" destination="Nlg-g7-EYM" id="905-gL-FZe"/>
+                        <outlet property="stackView" destination="sbh-ly-K2h" id="VpI-dF-Wps"/>
                         <outlet property="tableView" destination="0lS-ah-aOh" id="zfL-KR-TGQ"/>
                         <outlet property="worldActiveLabel" destination="J9j-jw-NVB" id="RzN-gM-Ksg"/>
                         <outlet property="worldAffectedCountriesLabel" destination="n6K-Up-GzJ" id="fpj-TI-wPh"/>
@@ -151,6 +153,7 @@
                         <outlet property="worldDeathsLabel" destination="mXe-oS-S9i" id="zbT-VG-4Rs"/>
                         <outlet property="worldRecoveredLabel" destination="qno-LD-F7c" id="bNR-fg-3H3"/>
                         <outlet property="worldUpdatedLabel" destination="hbX-Ls-Tp8" id="AnX-an-x46"/>
+                        <outlet property="worldWideLabel" destination="dOQ-Pg-Qdr" id="VS8-2t-zic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
