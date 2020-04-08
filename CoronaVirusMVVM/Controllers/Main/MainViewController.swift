@@ -219,22 +219,35 @@ extension MainViewController: UISearchBarDelegate {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5.0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5.0).isActive = true
 
-
         countryArray = countryListVM.countryList.filter({$0.country!.prefix(searchText.count) == searchText})
         isSearching = true
         tableView.reloadData()
     }
 
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5.0).isActive = true
+        tableView.topAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: 10.0).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5.0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5.0).isActive = true
 
         stackView.layoutIfNeeded()
+        stackView.isHidden = true
+        worldWideLabel.text = ""
+        coronaImageView.isHidden = true
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        stackView.layoutIfNeeded()
+        worldWideLabel.isHidden = false
         stackView.isHidden = false
         coronaImageView.isHidden = false
+        tableView.reloadData()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-
+        searchBar.endEditing(true)
         stackView.layoutIfNeeded()
         stackView.isHidden = false
         worldWideLabel.isHidden = false
