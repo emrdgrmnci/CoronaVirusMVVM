@@ -148,8 +148,8 @@ extension MainViewController: UITableViewDataSource {
         let countryVM = self.countryListVM.countryAtIndex(indexPath.row)
         if isSearching {
             cell.countryLabel.text = countryArray[indexPath.row].country
-            cell.deathsLabel.text = "Deaths: \(String(describing: countryArray[indexPath.row].deaths))"
-            cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryArray[indexPath.row].countryInfo?.flag))"), placeholderImage: UIImage(named: "placeholder.png"))
+            cell.deathsLabel.text = "Deaths: \(countryArray[indexPath.row].deaths ?? 0)"
+            cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
         } else {
             //        let countries = [self.countryListVM.countryList[indexPath.row].country]
             cell.countryLabel.text = countryVM.country
@@ -195,6 +195,11 @@ extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         isSearching = true
         countryArray = countryListVM.countryList.filter({$0.country!.prefix(searchText.count) == searchText})
+        tableView.reloadData()
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        isSearching = false
         tableView.reloadData()
     }
 
