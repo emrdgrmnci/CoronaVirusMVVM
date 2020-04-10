@@ -38,12 +38,29 @@ class APIService {
 
                 let global = try? JSONDecoder().decode(Global.self, from: data)
                 if let global = global {
-                completion(global)
+                    completion(global)
                     print(global)
                 }
             }
 
         }.resume()
 
+    }
+
+    func getNews(url: URL, completion: @escaping ([Article]?) -> ()) {
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else if let data = data {
+                let articleList = try? JSONDecoder().decode(NewsResponse.self, from: data)
+
+                if let articleList = articleList {
+                    completion(articleList.articles)
+                }
+            }
+        }.resume()
     }
 }

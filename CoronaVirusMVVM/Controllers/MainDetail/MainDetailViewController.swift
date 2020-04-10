@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class DetailViewController: UIViewController {
+class MainDetailViewController: UIViewController {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var confirmedCasesLabel: UILabel!

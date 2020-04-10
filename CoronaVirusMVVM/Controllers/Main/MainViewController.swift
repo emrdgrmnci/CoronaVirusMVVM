@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
 
     func setupNavigationBar() {
         navigationController?.navigationBar.isTranslucent = false
+        navigationController?.setStatusBar(backgroundColor: UIColor(displayP3Red: 32/255, green: 200/255, blue: 182/255, alpha: 1))
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         searchController.searchBar.searchTextField.clearButtonMode = .whileEditing
@@ -197,7 +198,7 @@ extension MainViewController {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? MainDetailViewController else { return }
 
         let countryDetailVM = countryListVM.countryAtIndex(row)
         detailVC.configure(with: countryDetailVM)
