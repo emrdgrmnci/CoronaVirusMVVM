@@ -2,7 +2,7 @@
 //  CountryViewModel.swift
 //  CoronaVirusMVVM
 //
-//  Created by Ali Emre Değirmenci on 2.04.2020.
+//  Created by Ali Emre Değirmenci on 11.04.2020.
 //  Copyright © 2020 Ali Emre Degirmenci. All rights reserved.
 //
 

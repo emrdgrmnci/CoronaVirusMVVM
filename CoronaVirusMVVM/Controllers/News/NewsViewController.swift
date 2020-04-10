@@ -35,7 +35,7 @@ class NewsViewController: UIViewController {
         navigationController?.setStatusBar(backgroundColor: UIColor(displayP3Red: 32/255, green: 200/255, blue: 182/255, alpha: 1))
     }
 
-     func getNews() {
+    func getNews() {
         let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=\(apiKey)")!
         APIService().getNews(url: url) { [weak self] articles in
 
@@ -50,9 +50,19 @@ class NewsViewController: UIViewController {
 
         }
     }
+
+    public func formattedDate(of publishedAt: String) -> String {
+           let formatter = DateFormatter()
+           formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+           let publishedDate = formatter.date(from: publishedAt)
+           formatter.dateFormat = "dd-MMMM-yyyy"
+           let formattedDate = formatter.string(from: publishedDate!)
+           return formattedDate
+       }
 }
 
 extension NewsViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.articleListVM == nil ? 0 : self.articleListVM.numberOfRowSection(section)
 
@@ -63,16 +73,11 @@ extension NewsViewController: UITableViewDataSource {
         }
 
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-        let publishedDate = formatter.date(from: articleVM.publishedAt)
-        formatter.dateFormat = "dd-MMMM-yyyy"
-        let formattedDate = formatter.string(from: publishedDate!)
 
         cell.newsImageView.sd_setImage(with: URL(string: "\(String(describing: articleVM.urlToImage))"), placeholderImage: UIImage(named: "placeholder.png"))
         cell.newsContentLabel.text = articleVM.title
         cell.newsSourceLabel.text = articleVM.source
-        cell.newsPublishedLabel.text = formattedDate
+        cell.newsPublishedLabel.text = formattedDate(of: articleVM.publishedAt)
 
         return cell
     }
@@ -80,8 +85,8 @@ extension NewsViewController: UITableViewDataSource {
 
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-           return 120
-       }
+        return 120
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         routeToDetail(with: indexPath.row)
