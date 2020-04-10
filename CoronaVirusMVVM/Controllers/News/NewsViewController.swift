@@ -63,11 +63,16 @@ extension NewsViewController: UITableViewDataSource {
         }
 
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+        let publishedDate = formatter.date(from: articleVM.publishedAt)
+        formatter.dateFormat = "dd-MMMM-yyyy"
+        let formattedDate = formatter.string(from: publishedDate!)
 
         cell.newsImageView.sd_setImage(with: URL(string: "\(String(describing: articleVM.urlToImage))"), placeholderImage: UIImage(named: "placeholder.png"))
         cell.newsContentLabel.text = articleVM.title
         cell.newsSourceLabel.text = articleVM.source
-        cell.newsPublishedLabel.text = articleVM.publishedAt
+        cell.newsPublishedLabel.text = formattedDate
 
         return cell
     }
