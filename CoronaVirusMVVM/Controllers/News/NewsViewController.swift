@@ -18,6 +18,8 @@ class NewsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    // MARK: - View's Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +36,8 @@ class NewsViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.setStatusBar(backgroundColor: UIColor(displayP3Red: 32/255, green: 200/255, blue: 182/255, alpha: 1))
     }
+
+    // MARK: - Requests
 
     func getNews() {
         let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=\(apiKey)")!
@@ -61,6 +65,8 @@ class NewsViewController: UIViewController {
        }
 }
 
+// MARK: - UITableViewDataSource
+
 extension NewsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,6 +89,8 @@ extension NewsViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
@@ -92,6 +100,8 @@ extension NewsViewController: UITableViewDelegate {
         routeToDetail(with: indexPath.row)
     }
 }
+
+// MARK: - Routing
 
 extension NewsViewController {
     func routeToDetail(with row: Int) {

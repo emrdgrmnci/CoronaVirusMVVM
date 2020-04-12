@@ -207,8 +207,11 @@ extension MainViewController {
     }
 }
 
+// MARK: - UISearchBarDelegate
+
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        isSearching = true
 
         stackView.layoutIfNeeded()
         stackView.isHidden = true
@@ -221,7 +224,6 @@ extension MainViewController: UISearchBarDelegate {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5.0).isActive = true
 
         countryArray = countryListVM.countryList.filter({$0.country!.prefix(searchText.count) == searchText})
-        isSearching = true
         tableView.reloadData()
     }
 
