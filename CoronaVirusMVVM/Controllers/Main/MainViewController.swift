@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     private var countryListVM: CountryListViewModel!
     private var globalVM: GlobalViewModel!
 
-    var countryArray = [Country]()
+    var searchCountries = [Country]()
     var isSearching = false
 
     // MARK: - View's Lifecycle
@@ -148,7 +148,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if isSearching {
-            return countryArray.count
+            return searchCountries.count
         } else {
             return self.countryListVM == nil ? 0 : self.countryListVM.numberOfRowsInSection(section)
         }
@@ -163,9 +163,9 @@ extension MainViewController: UITableViewDataSource {
 
         let countryVM = self.countryListVM.countryAtIndex(indexPath.row)
         if isSearching {
-            cell.countryLabel.text = countryArray[indexPath.row].country
-            cell.deathsLabel.text = "Deaths: \(countryArray[indexPath.row].deaths ?? 0)"
-            cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
+            cell.countryLabel.text = searchCountries[indexPath.row].country
+            cell.deathsLabel.text = "Deaths: \(searchCountries[indexPath.row].deaths ?? 0)"
+            cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: searchCountries[indexPath.row].countryInfo?.flag))"), placeholderImage: UIImage(named: "placeholder.png"))
         } else {
             //        let countries = [self.countryListVM.countryList[indexPath.row].country]
             cell.countryLabel.text = countryVM.country
@@ -212,6 +212,8 @@ extension MainViewController {
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         isSearching = true
+        searchCountries = countryListVM.countryList.filter({$0.country!.prefix(searchText.count) == searchText})
+        tableView.reloadData()
 
         stackView.layoutIfNeeded()
         stackView.isHidden = true
@@ -223,8 +225,6 @@ extension MainViewController: UISearchBarDelegate {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5.0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5.0).isActive = true
 
-        countryArray = countryListVM.countryList.filter({$0.country!.prefix(searchText.count) == searchText})
-        tableView.reloadData()
     }
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
