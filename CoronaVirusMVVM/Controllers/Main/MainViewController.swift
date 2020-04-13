@@ -1,9 +1,10 @@
+
 //
 //  MainViewController.swift
 //  CoronaVirusMVVM
 //
 //  Created by Ali Emre Değirmenci on 2.04.2020.
-//  Copyright © 2020 Ali Emre Degirmenci. All rights reserved.
+//  Copyright :copyright: 2020 Ali Emre Degirmenci. All rights reserved.
 //
 
 import UIKit
@@ -24,9 +25,11 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var worldAffectedCountriesLabel: UILabel!
 
     private var countryListVM: CountryListViewModel!
+    private var searchListVM: CountryListViewModel!
+
     private var globalVM: GlobalViewModel!
 
-    var searchCountries = [Country]()
+    var searchCountries: [Country] = []
     var isSearching = false
 
     // MARK: - View's Lifecycle
@@ -119,7 +122,8 @@ extension MainViewController {
         let format = DateFormatter()
         format.dateFormat = "MM - dd - YYYY hh:mm a"
         return format.string(from: Date(timeIntervalSince1970:
-            TimeInterval(exactly: date)!))
+            TimeInterval(
+                exactly: date)!))
     }
 }
 
@@ -154,7 +158,6 @@ extension MainViewController: UITableViewDataSource {
         }
 
     }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as? MainTableViewCell else {
@@ -165,7 +168,10 @@ extension MainViewController: UITableViewDataSource {
         if isSearching {
             cell.countryLabel.text = searchCountries[indexPath.row].country
             cell.deathsLabel.text = "Deaths: \(searchCountries[indexPath.row].deaths ?? 0)"
-            cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: searchCountries[indexPath.row].countryInfo?.flag))"), placeholderImage: UIImage(named: "placeholder.png"))
+
+            let url = searchCountries[indexPath.row].countryInfo?.flag != "" ? searchCountries[indexPath.row].countryInfo?.flag! : ""
+            cell.countryFlagImageView.sd_setImage(with: URL(string: url!), placeholderImage: UIImage(named: "placeholder.png"))
+            //            cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: searchCountries[indexPath.row].countryInfo?.flag))"), placeholderImage: UIImage(named: "placeholder.png"))
         } else {
             //        let countries = [self.countryListVM.countryList[indexPath.row].country]
             cell.countryLabel.text = countryVM.country
@@ -186,6 +192,7 @@ extension MainViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
         routeToDetail(with: indexPath.row)
     }
 }
@@ -198,9 +205,11 @@ extension MainViewController {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? MainDetailViewController else { return }
-
-        let countryDetailVM = countryListVM.countryAtIndex(row)
+        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "MainDetailViewController") as? MainDetailViewController else { return }
+        var countryDetailVM = countryListVM.countryAtIndex(row)
+        if isSearching {
+            countryDetailVM = CountryListViewModel(countryList: searchCountries).countryAtIndex(row)
+        }
         detailVC.configure(with: countryDetailVM)
 
         navigationController?.pushViewController(detailVC, animated: true)
@@ -211,7 +220,13 @@ extension MainViewController {
 
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        isSearching = true
+        searchCountries.removeAll()
+        guard let textToSearch = searchBar.text, !textToSearch.isEmpty else {
+            return
+        }
+
+        isSearching =  textToSearch != "" ? true : false
+
         searchCountries = countryListVM.countryList.filter({$0.country!.prefix(searchText.count) == searchText})
         tableView.reloadData()
 
@@ -257,6 +272,6 @@ extension MainViewController: UISearchBarDelegate {
         coronaImageView.isHidden = false
         isSearching = false
         tableView.reloadData()
-
     }
 }
+

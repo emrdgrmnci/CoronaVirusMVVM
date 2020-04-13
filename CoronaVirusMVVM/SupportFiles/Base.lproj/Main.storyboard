@@ -163,7 +163,7 @@
         <!--Main Detail View Controller-->
         <scene sceneID="X9F-yf-1ln">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="mPv-FV-RaJ" customClass="MainDetailViewController" customModule="CoronaVirusMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainDetailViewController" id="mPv-FV-RaJ" customClass="MainDetailViewController" customModule="CoronaVirusMVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f3z-y7-WB2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -20,6 +20,7 @@ class MainDetailViewController: UIViewController {
     @IBOutlet weak var criticalCasesLabel: UILabel!
 
     private var viewModel: CountryViewModel!
+    private var searchedViewModel: CountryViewModel!
 
     // MARK: - View's Lifecycle
 
@@ -34,9 +35,16 @@ class MainDetailViewController: UIViewController {
         self.viewModel = viewModel
     }
 
+    public func searchedConfigure(with viewModel: CountryViewModel) {
+           self.searchedViewModel = viewModel
+       }
+
     // MARK: - Preparation
 
     private func prepareView() {
+
+        
+
         title = viewModel.country
 
         let imageURL = URL(string: viewModel.countryFlag)

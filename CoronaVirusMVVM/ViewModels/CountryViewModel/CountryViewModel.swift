@@ -21,6 +21,10 @@ struct CountryListViewModel {
     func countryAtIndex(_ index: Int) -> CountryViewModel {
         return CountryViewModel(countryInfo: countryList[index])
     }
+
+    func searchedCountryAtIndex(_ index: Int) -> CountryViewModel {
+        return CountryViewModel(countryInfo: countryList[index])
+    }
 }
 
 struct CountryViewModel {
