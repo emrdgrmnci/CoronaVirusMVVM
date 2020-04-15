@@ -9,6 +9,7 @@
 
 import UIKit
 import SDWebImage
+import SkeletonView
 
 class MainViewController: UIViewController {
 
@@ -27,6 +28,8 @@ class MainViewController: UIViewController {
     private var countryListVM: CountryListViewModel!
     private var searchListVM: CountryListViewModel!
 
+    private var shouldAnimate = true
+
     private var globalVM: GlobalViewModel!
 
     var searchCountries: [Country] = []
@@ -40,6 +43,11 @@ class MainViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.shouldAnimate = false
+            self.tableView.reloadData()
+        }
 
         getAllCases()
         getAllCountries()
@@ -164,6 +172,12 @@ extension MainViewController: UITableViewDataSource {
             fatalError("MainTableViewCell not found")
         }
 
+        if shouldAnimate {
+            cell.showAnimatedGradientSkeleton()
+        } else {
+            cell.hideAnimation()
+        }
+
         let countryVM = self.countryListVM.countryAtIndex(indexPath.row)
         if isSearching {
             cell.countryLabel.text = searchCountries[indexPath.row].country
@@ -171,14 +185,20 @@ extension MainViewController: UITableViewDataSource {
 
             let url = searchCountries[indexPath.row].countryInfo?.flag != "" ? searchCountries[indexPath.row].countryInfo?.flag! : ""
             cell.countryFlagImageView.sd_setImage(with: URL(string: url!), placeholderImage: UIImage(named: "placeholder.png"))
-            //            cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: searchCountries[indexPath.row].countryInfo?.flag))"), placeholderImage: UIImage(named: "placeholder.png"))
         } else {
-            //        let countries = [self.countryListVM.countryList[indexPath.row].country]
             cell.countryLabel.text = countryVM.country
             cell.deathsLabel.text = "Deaths: \(countryVM.deaths)"
             cell.countryFlagImageView.sd_setImage(with: URL(string: "\(String(describing: countryVM.countryFlag))"), placeholderImage: UIImage(named: "placeholder.png"))
         }
         return cell
+    }
+}
+
+// MARK: - SkeletonViewTableViewDataSource
+
+extension MainViewController: SkeletonTableViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "MainTableViewCell"
     }
 }
 

@@ -9,12 +9,14 @@
 import Foundation
 import UIKit
 import SDWebImage
+import SkeletonView
 
 class NewsViewController: UIViewController {
 
     private var articleListVM : ArticleListViewModel!
 
     let apiKey = Constants.shared.newsApiKey
+    private var shouldAnimate = true
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -24,9 +26,13 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
 
         title = "NEWS"
-
         tableView.delegate = self
         tableView.dataSource = self
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.shouldAnimate = false
+            self.tableView.reloadData()
+        }
 
         getNews()
     }
@@ -78,14 +84,28 @@ extension NewsViewController: UITableViewDataSource {
             fatalError("Cell error")
         }
 
+        if shouldAnimate {
+            cell.showAnimatedGradientSkeleton()
+        } else {
+            cell.hideAnimation()
+        }
+
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
 
         cell.newsImageView.sd_setImage(with: URL(string: "\(String(describing: articleVM.urlToImage))"), placeholderImage: UIImage(named: "placeholder.png"))
         cell.newsContentLabel.text = articleVM.title
         cell.newsSourceLabel.text = articleVM.source
         cell.newsPublishedLabel.text = formattedDate(of: articleVM.publishedAt)
-
+        cell.hideAnimation()
         return cell
+    }
+}
+
+// MARK: - SkeletonViewTableViewDataSource
+
+extension NewsViewController: SkeletonTableViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "NewsTableViewCell"
     }
 }
 

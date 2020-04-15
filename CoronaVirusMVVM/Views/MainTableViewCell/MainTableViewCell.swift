@@ -14,6 +14,17 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var deathsLabel: UILabel!
     @IBOutlet weak var countryFlagImageView: UIImageView!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        showAnimatedSkeleton()
+
+    }
+    func hideAnimation() {
+        hideSkeleton()
+    }
+
+
     func configure(with viewModel: CountryViewModel) {
         countryLabel.text = viewModel.country
         deathsLabel.text = "Deaths: \(viewModel.deaths)"
