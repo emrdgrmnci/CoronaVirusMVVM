@@ -1,22 +1,26 @@
 PODS:
+  - ReachabilitySwift (5.0.0)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
   - SkeletonView (1.8.6)
 
 DEPENDENCIES:
+  - ReachabilitySwift
   - SDWebImage (~> 5.0)
   - SkeletonView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ReachabilitySwift
     - SDWebImage
     - SkeletonView
 
 SPEC CHECKSUMS:
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SkeletonView: 0bf463145522c0c551b76a829b397e2a15a16d46
 
-PODFILE CHECKSUM: de132b8ac941f4c8a3292eaab01372f3756bb758
+PODFILE CHECKSUM: 4a9d9ec0667818d20d2f7de34a457324595a4254
 
 COCOAPODS: 1.7.5

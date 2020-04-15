@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		17D2AF4BDDE5FE2F0F298661 /* Pods_CoronaVirusMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A809879C813A3803F8CBD4 /* Pods_CoronaVirusMVVM.framework */; };
 		296163182437FE4000C37010 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296163172437FE4000C37010 /* Typealias.swift */; };
+		47253BCC24474A5100F914F0 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47253BCB24474A5100F914F0 /* NetworkReachability.swift */; };
 		47295CE52440C5E7002FB7D5 /* UINavigation+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295CE42440C5E7002FB7D5 /* UINavigation+StatusBar.swift */; };
 		47295CEB2440CC7C002FB7D5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295CEA2440CC7C002FB7D5 /* NewsViewController.swift */; };
 		47295CEE2440CCF2002FB7D5 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295CED2440CCF2002FB7D5 /* NewsTableViewCell.swift */; };
@@ -36,6 +37,7 @@
 		1849F7242C6D0A781BA4DE25 /* Pods-CoronaVirusMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusMVVM.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusMVVM/Pods-CoronaVirusMVVM.debug.xcconfig"; sourceTree = "<group>"; };
 		296163172437FE4000C37010 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		40A809879C813A3803F8CBD4 /* Pods_CoronaVirusMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoronaVirusMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47253BCB24474A5100F914F0 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		47295CE42440C5E7002FB7D5 /* UINavigation+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+StatusBar.swift"; sourceTree = "<group>"; };
 		47295CEA2440CC7C002FB7D5 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		47295CED2440CCF2002FB7D5 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,9 +103,18 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		47253BC82447461E00F914F0 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				47253BCB24474A5100F914F0 /* NetworkReachability.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		47295CE22440C5C0002FB7D5 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				47253BC82447461E00F914F0 /* Reachability */,
 				47295CE62440C78C002FB7D5 /* Constants */,
 				47295CE32440C5C7002FB7D5 /* Extensions */,
 			);
@@ -414,6 +425,7 @@
 				47F70FDC243614A900DC85D2 /* MainViewController.swift in Sources */,
 				47F70FC724360A6900DC85D2 /* AppDelegate.swift in Sources */,
 				47B38FE02440E3A300C196B7 /* NewsDetailViewController.swift in Sources */,
+				47253BCC24474A5100F914F0 /* NetworkReachability.swift in Sources */,
 				47F70FC924360A6900DC85D2 /* SceneDelegate.swift in Sources */,
 				296163182437FE4000C37010 /* Typealias.swift in Sources */,
 				47F70FF92436AB3500DC85D2 /* GlobalViewModel.swift in Sources */,

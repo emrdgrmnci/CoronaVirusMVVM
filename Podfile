@@ -6,6 +6,7 @@ target 'CoronaVirusMVVM' do
 
   # Pods for CoronaVirusMVVM
   pod 'SDWebImage', '~> 5.0'
-  pod "SkeletonView"
+  pod 'SkeletonView'
+  pod 'ReachabilitySwift'
 end
 

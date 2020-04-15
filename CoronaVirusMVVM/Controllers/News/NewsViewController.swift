@@ -17,10 +17,21 @@ class NewsViewController: UIViewController {
 
     let apiKey = Constants.shared.newsApiKey
     private var shouldAnimate = true
+    private var networkReachability = NetworkReachability()
 
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: - View's Lifecycle
+
+    override func viewDidAppear(_ animated: Bool) {
+        //MARK: - NetworkReachability
+
+        if !networkReachability.isReachable {
+            let alert = UIAlertController(title: "Oops!", message: "You're offline! Check your network connection.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +47,8 @@ class NewsViewController: UIViewController {
 
         getNews()
     }
+
+    // MARK: - NavigationBar
 
     func setupNavigationBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = false
@@ -62,13 +75,13 @@ class NewsViewController: UIViewController {
     }
 
     public func formattedDate(of publishedAt: String) -> String {
-           let formatter = DateFormatter()
-           formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-           let publishedDate = formatter.date(from: publishedAt)
-           formatter.dateFormat = "dd-MMMM-yyyy"
-           let formattedDate = formatter.string(from: publishedDate!)
-           return formattedDate
-       }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+        let publishedDate = formatter.date(from: publishedAt)
+        formatter.dateFormat = "dd-MMMM-yyyy"
+        let formattedDate = formatter.string(from: publishedDate!)
+        return formattedDate
+    }
 }
 
 // MARK: - UITableViewDataSource

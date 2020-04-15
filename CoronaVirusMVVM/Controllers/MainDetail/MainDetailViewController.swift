@@ -21,8 +21,19 @@ class MainDetailViewController: UIViewController {
 
     private var viewModel: CountryViewModel!
     private var searchedViewModel: CountryViewModel!
+    private var networkReachability = NetworkReachability()
 
     // MARK: - View's Lifecycle
+
+    override func viewDidAppear(_ animated: Bool) {
+          //MARK: - NetworkReachability
+
+          if !networkReachability.isReachable {
+              let alert = UIAlertController(title: "Oops!", message: "You're offline! Check your network connection.", preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+              self.present(alert, animated: true, completion: nil)
+          }
+      }
 
     override func viewDidLoad() {
         super.viewDidLoad()

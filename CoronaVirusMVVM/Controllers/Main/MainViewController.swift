@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
     private var searchListVM: CountryListViewModel!
 
     private var shouldAnimate = true
+    private var networkReachability = NetworkReachability()
 
     private var globalVM: GlobalViewModel!
 
@@ -36,6 +37,17 @@ class MainViewController: UIViewController {
     var isSearching = false
 
     // MARK: - View's Lifecycle
+
+    override func viewDidAppear(_ animated: Bool) {
+         //MARK: - NetworkReachability
+
+         if !networkReachability.isReachable {
+             let alert = UIAlertController(title: "Oops!", message: "You're offline! Check your network connection.", preferredStyle: .alert)
+             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+             self.present(alert, animated: true, completion: nil)
+         }
+     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
