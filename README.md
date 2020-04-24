@@ -1,4 +1,4 @@
-# Corona Tracker Application [![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)]() [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)]()
+# Corona Tracker Application [![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)]() [![Platform](https://img.shields.io/badge/platform-iOS13.1-lightgrey.svg)]()
 
 Purpose of the project
 ======================
