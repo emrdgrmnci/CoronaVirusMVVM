@@ -25,12 +25,9 @@ class MainTableViewCell: UITableViewCell {
     }
 
 
-    func configure(with viewModel: CountryViewModel) {
-        countryLabel.text = viewModel.country
-        deathsLabel.text = "Deaths: \(viewModel.deaths)"
-
-        let imageURL = URL(string: viewModel.countryFlag)
-        countryFlagImageView.sd_setImage(with: imageURL,
-                                         placeholderImage: UIImage(named: "placeholder.png"))
+    func configure(with country: Country) {
+        countryLabel.text = country.country
+        deathsLabel.text = "Deaths: \(country.deaths)"
+        countryFlagImageView.setImage(with: country.countryInfo?.flag)
     }
 }
