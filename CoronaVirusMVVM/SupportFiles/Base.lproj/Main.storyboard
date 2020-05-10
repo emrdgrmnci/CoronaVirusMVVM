@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcN-gv-8Hp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcN-gv-8Hp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -435,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upF-fo-Zle" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955.072463768116" y="788.83928571428567"/>
+            <point key="canvasLocation" x="1958" y="840"/>
         </scene>
         <!--News Detail View Controller-->
         <scene sceneID="cBV-Td-8Wm">
@@ -512,15 +512,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmy-Iv-Xtx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="788.83928571428567"/>
+            <point key="canvasLocation" x="1048" y="840"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <image name="globe" catalog="system" width="128" height="121"/>
-        <image name="n.circle" catalog="system" width="128" height="121"/>
-        <image name="n.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="globe" catalog="system" width="64" height="60"/>
+        <image name="n.circle" catalog="system" width="64" height="60"/>
+        <image name="n.circle.fill" catalog="system" width="64" height="60"/>
         <image name="placeholder" width="30" height="30"/>
         <image name="virus" width="512" height="512"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

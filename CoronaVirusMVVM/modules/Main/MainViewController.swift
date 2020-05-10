@@ -71,8 +71,7 @@ class MainViewController: UIViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        viewModel.isSearching = false
-        tableView.reloadData()
+        viewModel.viewWillDisappear()
     }
 
     func setupNavigationBar() {
@@ -159,7 +158,6 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController {
 
     func routeToDetail(with row: Int) {
-
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //
 //        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "MainDetailViewController") as? MainDetailViewController else { return }

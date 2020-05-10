@@ -33,6 +33,7 @@
 		8AA5E2FC2468271800A40745 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5E2FB2468271800A40745 /* Constants.swift */; };
 		8AA5E2FE2468292B00A40745 /* MainDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5E2FD2468292B00A40745 /* MainDetailViewModel.swift */; };
 		8AA5E30024682A8A00A40745 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5E2FF24682A8A00A40745 /* MainViewModel.swift */; };
+		8AA5E30224683F4C00A40745 /* MainViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5E30124683F4C00A40745 /* MainViewControllerBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		8AA5E2FB2468271800A40745 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8AA5E2FD2468292B00A40745 /* MainDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailViewModel.swift; sourceTree = "<group>"; };
 		8AA5E2FF24682A8A00A40745 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8AA5E30124683F4C00A40745 /* MainViewControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerBuilder.swift; sourceTree = "<group>"; };
 		B9031E1FFE3720B56CBEFE70 /* Pods-CoronaVirusMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusMVVM.release.xcconfig"; path = "Target Support Files/Pods-CoronaVirusMVVM/Pods-CoronaVirusMVVM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +237,7 @@
 			children = (
 				47F70FDB243614A900DC85D2 /* MainViewController.swift */,
 				8AA5E2FF24682A8A00A40745 /* MainViewModel.swift */,
+				8AA5E30124683F4C00A40745 /* MainViewControllerBuilder.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				47F70FDC243614A900DC85D2 /* MainViewController.swift in Sources */,
 				47F70FC724360A6900DC85D2 /* AppDelegate.swift in Sources */,
 				47B38FE02440E3A300C196B7 /* NewsDetailViewController.swift in Sources */,
+				8AA5E30224683F4C00A40745 /* MainViewControllerBuilder.swift in Sources */,
 				47253BCC24474A5100F914F0 /* NetworkReachability.swift in Sources */,
 				47F70FC924360A6900DC85D2 /* SceneDelegate.swift in Sources */,
 				296163182437FE4000C37010 /* Typealias.swift in Sources */,

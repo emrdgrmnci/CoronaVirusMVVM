@@ -18,7 +18,6 @@ protocol MainViewModelDelegate: class {
 protocol MainViewModelInterface: class {
     var delegate: MainViewModelDelegate? { get set }
     var countryCount: Int { get }
-    var isSearching: Bool { get set }
     
     func country(index: Int) -> Country
     func getAllCountries()
@@ -28,6 +27,8 @@ protocol MainViewModelInterface: class {
     func searchBarTextDidBeginEditing()
     func searchBarTextDidEndEditing()
     func searchBarCancelButtonClicked()
+    
+    func viewWillDisappear()
 }
 
 class MainViewModel {
@@ -37,6 +38,8 @@ class MainViewModel {
     
     var countries: [Country]
     var filteredCountries: [Country]
+    
+    var isSearching: Bool = false
     
     init(service: APIServiceProtocol) {
         self.service = service
@@ -49,21 +52,18 @@ class MainViewModel {
 
 extension MainViewModel: MainViewModelInterface {
     
-    var isSearching: Bool {
-        get {
-            return self.isSearching
-        }
-        set {
-            self.isSearching = newValue
-        }
-    }
-    
     var countryCount: Int {
         return isSearching ? filteredCountries.count : countries.count
     }
     
     func country(index: Int) -> Country {
         return isSearching ? filteredCountries[index] : countries[index]
+    }
+    
+    // MARK - Lifcycle Methods
+    func viewWillDisappear() {
+        isSearching = false
+        delegate?.notifyTableView()
     }
     
     // MARK - SearchBar
@@ -92,7 +92,7 @@ extension MainViewModel: MainViewModelInterface {
     
     // MARK - Network Calls
     func getAllCountries() {
-        let url = URL(string: "https://corona.lmao.ninja/countries?sort=country")!
+        let url = URL(string: "https://corona.lmao.ninja/v2/countries?sort=country")!
         service.getCountries(url: url) { [weak self] (countries) in
             self?.countries = countries ?? []
             self?.delegate?.notifyTableView()
@@ -100,11 +100,13 @@ extension MainViewModel: MainViewModelInterface {
     }
     
     func getAllCases() {
-        let url = URL(string: "https://corona.lmao.ninja/all")!
+        let url = URL(string: "https://corona.lmao.ninja/v2/all")!
         service.getGlobalCases(url: url) { (global) in
             guard let global = global else { return }
             let presentation = GlobalPresentation.init(global: global)
-            self.delegate?.prepareWorldViewInfos(presentation)
+            DispatchQueue.main.async {
+                self.delegate?.prepareWorldViewInfos(presentation)
+            }
         }
     }
 }
