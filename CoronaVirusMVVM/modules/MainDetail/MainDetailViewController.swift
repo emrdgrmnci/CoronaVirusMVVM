@@ -19,6 +19,8 @@ class MainDetailViewController: UIViewController {
     @IBOutlet weak var todayDeathsLabel: UILabel!
     @IBOutlet weak var criticalCasesLabel: UILabel!
 
+    var viewModel2: MainDetailViewModelInterface!
+    
     private var viewModel: CountryViewModel!
     private var searchedViewModel: CountryViewModel!
     private var networkReachability = NetworkReachability()

@@ -8,7 +8,13 @@
 
 import Foundation
 
-class APIService {
+protocol APIServiceProtocol {
+    func getCountries(url: URL, completion: @escaping CallBack<[Country]?>)
+    func getGlobalCases(url: URL, completion: @escaping CallBack<Global?>)
+    func getNews(url: URL, completion: @escaping ([Article]?) -> ())
+}
+
+class APIService: APIServiceProtocol {
 
     func getCountries(url: URL, completion: @escaping CallBack<[Country]?>) {
 

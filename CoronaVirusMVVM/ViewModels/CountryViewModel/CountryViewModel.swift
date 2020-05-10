@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CountryListViewModel {
+struct CountryListPresentation {
 
     var countryList: [Country]
 
