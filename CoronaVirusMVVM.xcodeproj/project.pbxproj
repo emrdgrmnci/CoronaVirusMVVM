@@ -17,6 +17,10 @@
 		47295CF52440DA46002FB7D5 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295CF42440DA46002FB7D5 /* ArticleViewModel.swift */; };
 		476E1F44244127BE0018ED75 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476E1F43244127BE0018ED75 /* CountryViewModel.swift */; };
 		47966811246ADDD700401FDC /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47966810246ADDD700401FDC /* UIImageView.swift */; };
+		47966815246AE01200401FDC /* MainDetailControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47966814246AE01200401FDC /* MainDetailControllerBuilder.swift */; };
+		47966817246AE17F00401FDC /* MainListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47966816246AE17F00401FDC /* MainListContracts.swift */; };
+		47966819246AE2B700401FDC /* MainDetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47966818246AE2B700401FDC /* MainDetailContracts.swift */; };
+		4796681B246AE4AF00401FDC /* CountryDetailPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4796681A246AE4AF00401FDC /* CountryDetailPresentation.swift */; };
 		47B38FE02440E3A300C196B7 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B38FDF2440E3A300C196B7 /* NewsDetailViewController.swift */; };
 		47B38FE22440EB5D00C196B7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B38FE12440EB5D00C196B7 /* WebKit.framework */; };
 		47F70FC724360A6900DC85D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F70FC624360A6900DC85D2 /* AppDelegate.swift */; };
@@ -49,6 +53,10 @@
 		47295CF42440DA46002FB7D5 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		476E1F43244127BE0018ED75 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		47966810246ADDD700401FDC /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		47966814246AE01200401FDC /* MainDetailControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailControllerBuilder.swift; sourceTree = "<group>"; };
+		47966816246AE17F00401FDC /* MainListContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListContracts.swift; sourceTree = "<group>"; };
+		47966818246AE2B700401FDC /* MainDetailContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailContracts.swift; sourceTree = "<group>"; };
+		4796681A246AE4AF00401FDC /* CountryDetailPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailPresentation.swift; sourceTree = "<group>"; };
 		47B38FDF2440E3A300C196B7 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		47B38FE12440EB5D00C196B7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		47F70FC324360A6900DC85D2 /* CoronaVirusMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,7 +226,7 @@
 				47F70FDA2436149600DC85D2 /* modules */,
 				47F70FE924361EFB00DC85D2 /* Models */,
 				47F70FE624361BC600DC85D2 /* Services */,
-				47F70FEC243623AC00DC85D2 /* ViewModels */,
+				47F70FEC243623AC00DC85D2 /* Presentations */,
 				47F70FE12436199700DC85D2 /* Views */,
 			);
 			path = CoronaVirusMVVM;
@@ -241,6 +249,7 @@
 				47F70FDB243614A900DC85D2 /* MainViewController.swift */,
 				8AA5E2FF24682A8A00A40745 /* MainViewModel.swift */,
 				8AA5E30124683F4C00A40745 /* MainViewControllerBuilder.swift */,
+				47966816246AE17F00401FDC /* MainListContracts.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -250,6 +259,8 @@
 			children = (
 				47F70FDF2436159E00DC85D2 /* MainDetailViewController.swift */,
 				8AA5E2FD2468292B00A40745 /* MainDetailViewModel.swift */,
+				47966814246AE01200401FDC /* MainDetailControllerBuilder.swift */,
+				47966818246AE2B700401FDC /* MainDetailContracts.swift */,
 			);
 			path = MainDetail;
 			sourceTree = "<group>";
@@ -289,30 +300,31 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		47F70FEC243623AC00DC85D2 /* ViewModels */ = {
+		47F70FEC243623AC00DC85D2 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
 				47295CF12440CEF3002FB7D5 /* NewsViewModel */,
-				47F70FF52436A3D800DC85D2 /* GlobalViewModel */,
-				47F70FF42436A3CF00DC85D2 /* CountryViewModel */,
+				47F70FF52436A3D800DC85D2 /* GlobalPresentation */,
+				47F70FF42436A3CF00DC85D2 /* CountryDetailPresentation */,
 			);
-			path = ViewModels;
+			path = Presentations;
 			sourceTree = "<group>";
 		};
-		47F70FF42436A3CF00DC85D2 /* CountryViewModel */ = {
+		47F70FF42436A3CF00DC85D2 /* CountryDetailPresentation */ = {
 			isa = PBXGroup;
 			children = (
 				476E1F43244127BE0018ED75 /* CountryViewModel.swift */,
+				4796681A246AE4AF00401FDC /* CountryDetailPresentation.swift */,
 			);
-			path = CountryViewModel;
+			path = CountryDetailPresentation;
 			sourceTree = "<group>";
 		};
-		47F70FF52436A3D800DC85D2 /* GlobalViewModel */ = {
+		47F70FF52436A3D800DC85D2 /* GlobalPresentation */ = {
 			isa = PBXGroup;
 			children = (
 				47F70FF82436AB3500DC85D2 /* GlobalPresentation.swift */,
 			);
-			path = GlobalViewModel;
+			path = GlobalPresentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,7 +447,9 @@
 				47295CF02440CE50002FB7D5 /* News.swift in Sources */,
 				47295CEE2440CCF2002FB7D5 /* NewsTableViewCell.swift in Sources */,
 				8AA5E2FE2468292B00A40745 /* MainDetailViewModel.swift in Sources */,
+				47966819246AE2B700401FDC /* MainDetailContracts.swift in Sources */,
 				476E1F44244127BE0018ED75 /* CountryViewModel.swift in Sources */,
+				47966817246AE17F00401FDC /* MainListContracts.swift in Sources */,
 				47F70FDC243614A900DC85D2 /* MainViewController.swift in Sources */,
 				47F70FC724360A6900DC85D2 /* AppDelegate.swift in Sources */,
 				47B38FE02440E3A300C196B7 /* NewsDetailViewController.swift in Sources */,
@@ -443,12 +457,14 @@
 				47253BCC24474A5100F914F0 /* NetworkReachability.swift in Sources */,
 				47F70FC924360A6900DC85D2 /* SceneDelegate.swift in Sources */,
 				296163182437FE4000C37010 /* Typealias.swift in Sources */,
+				47966815246AE01200401FDC /* MainDetailControllerBuilder.swift in Sources */,
 				47F70FF92436AB3500DC85D2 /* GlobalPresentation.swift in Sources */,
 				47F70FE02436159E00DC85D2 /* MainDetailViewController.swift in Sources */,
 				8AA5E30024682A8A00A40745 /* MainViewModel.swift in Sources */,
 				47295CF52440DA46002FB7D5 /* ArticleViewModel.swift in Sources */,
 				47F70FE824361BD300DC85D2 /* APIService.swift in Sources */,
 				47295CE52440C5E7002FB7D5 /* UINavigation+StatusBar.swift in Sources */,
+				4796681B246AE4AF00401FDC /* CountryDetailPresentation.swift in Sources */,
 				47966811246ADDD700401FDC /* UIImageView.swift in Sources */,
 				47295CEB2440CC7C002FB7D5 /* NewsViewController.swift in Sources */,
 				47F70FE4243619BA00DC85D2 /* MainTableViewCell.swift in Sources */,

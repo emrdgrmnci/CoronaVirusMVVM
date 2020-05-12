@@ -1,0 +1,28 @@
+//
+//  CountryDetailPresentation.swift
+//  CoronaVirusMVVM
+//
+//  Created by Ali Emre Değirmenci on 12.05.2020.
+//  Copyright © 2020 Ali Emre Degirmenci. All rights reserved.
+//
+
+import Foundation
+
+struct CountryDetailPresentation {
+
+    let confirmedCasesLabelText: String
+    let totalDeathsLabelText: String
+    let totalRecoveredLabelText: String
+    let todayCasesLabelText: String
+    let todayDeathsLabelText: String
+    let criticalCasesLabelText: String
+
+    init(country: Country) {
+        confirmedCasesLabelText = "Confirmed Cases: \(country.cases ?? 0)"
+        totalDeathsLabelText = "Total Deaths: \(country.deaths ?? 0)"
+        totalRecoveredLabelText = "Today Recovered: \(country.recovered ?? 0)"
+        todayCasesLabelText = "Today Cases: \(country.active ?? 0)"
+        todayDeathsLabelText = "Today Deaths: \(country.todayDeaths ?? 0)"
+        criticalCasesLabelText = "Critical Cases: \(country.critical ?? 0)"
+    }
+}

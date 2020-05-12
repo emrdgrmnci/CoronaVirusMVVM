@@ -8,29 +8,6 @@
 
 import Foundation
 
-protocol MainViewModelDelegate: class {
-    func notifyTableView()
-    func notifyViewAfterSearchTextDidChange()
-    func notifyViewAfterSearchDidEnd()
-    func prepareWorldViewInfos(_ presentation: GlobalPresentation)
-}
-
-protocol MainViewModelInterface: class {
-    var delegate: MainViewModelDelegate? { get set }
-    var countryCount: Int { get }
-    
-    func country(index: Int) -> Country
-    func getAllCountries()
-    func getAllCases()
-    
-    func searchBarTextDidChange(_ searchText: String)
-    func searchBarTextDidBeginEditing()
-    func searchBarTextDidEndEditing()
-    func searchBarCancelButtonClicked()
-    
-    func viewWillDisappear()
-}
-
 class MainViewModel {
     
     weak var delegate: MainViewModelDelegate?
