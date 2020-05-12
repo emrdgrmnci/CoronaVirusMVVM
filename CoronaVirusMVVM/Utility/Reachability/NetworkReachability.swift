@@ -35,6 +35,6 @@ class NetworkReachability {
        else {
            self.isReachable = false
        }
-       print("Internet Connected : \(self.isReachable)") //Print Status of Network Connection
+       print("Internet Connected : \(self.isReachable)") 
    }
 }
