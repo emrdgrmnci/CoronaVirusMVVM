@@ -221,7 +221,7 @@
 				47295CE22440C5C0002FB7D5 /* Utility */,
 				296163162437FE3400C37010 /* Common */,
 				47E4DA6F24376E53008E7850 /* SupportFiles */,
-				47F70FDA2436149600DC85D2 /* modules */,
+				47F70FDA2436149600DC85D2 /* Modules */,
 				47F70FE924361EFB00DC85D2 /* Models */,
 				47F70FE624361BC600DC85D2 /* Services */,
 				47F70FEC243623AC00DC85D2 /* Presentations */,
@@ -230,7 +230,7 @@
 			path = CoronaVirusMVVM;
 			sourceTree = "<group>";
 		};
-		47F70FDA2436149600DC85D2 /* modules */ = {
+		47F70FDA2436149600DC85D2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				47B38FDE2440E37300C196B7 /* NewsDetail */,
@@ -238,7 +238,7 @@
 				47F70FDE2436159000DC85D2 /* MainDetail */,
 				47F70FDD2436157A00DC85D2 /* Main */,
 			);
-			path = modules;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		47F70FDD2436157A00DC85D2 /* Main */ = {
