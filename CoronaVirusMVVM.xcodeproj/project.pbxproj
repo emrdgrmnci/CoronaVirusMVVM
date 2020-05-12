@@ -15,7 +15,6 @@
 		47295CEE2440CCF2002FB7D5 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295CED2440CCF2002FB7D5 /* NewsTableViewCell.swift */; };
 		47295CF02440CE50002FB7D5 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295CEF2440CE50002FB7D5 /* News.swift */; };
 		47295CF52440DA46002FB7D5 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295CF42440DA46002FB7D5 /* ArticleViewModel.swift */; };
-		476E1F44244127BE0018ED75 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476E1F43244127BE0018ED75 /* CountryViewModel.swift */; };
 		47966811246ADDD700401FDC /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47966810246ADDD700401FDC /* UIImageView.swift */; };
 		47966815246AE01200401FDC /* MainDetailControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47966814246AE01200401FDC /* MainDetailControllerBuilder.swift */; };
 		47966817246AE17F00401FDC /* MainListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47966816246AE17F00401FDC /* MainListContracts.swift */; };
@@ -51,7 +50,6 @@
 		47295CED2440CCF2002FB7D5 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		47295CEF2440CE50002FB7D5 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		47295CF42440DA46002FB7D5 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
-		476E1F43244127BE0018ED75 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		47966810246ADDD700401FDC /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		47966814246AE01200401FDC /* MainDetailControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailControllerBuilder.swift; sourceTree = "<group>"; };
 		47966816246AE17F00401FDC /* MainListContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListContracts.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 		47F70FF42436A3CF00DC85D2 /* CountryDetailPresentation */ = {
 			isa = PBXGroup;
 			children = (
-				476E1F43244127BE0018ED75 /* CountryViewModel.swift */,
 				4796681A246AE4AF00401FDC /* CountryDetailPresentation.swift */,
 			);
 			path = CountryDetailPresentation;
@@ -448,7 +445,6 @@
 				47295CEE2440CCF2002FB7D5 /* NewsTableViewCell.swift in Sources */,
 				8AA5E2FE2468292B00A40745 /* MainDetailViewModel.swift in Sources */,
 				47966819246AE2B700401FDC /* MainDetailContracts.swift in Sources */,
-				476E1F44244127BE0018ED75 /* CountryViewModel.swift in Sources */,
 				47966817246AE17F00401FDC /* MainListContracts.swift in Sources */,
 				47F70FDC243614A900DC85D2 /* MainViewController.swift in Sources */,
 				47F70FC724360A6900DC85D2 /* AppDelegate.swift in Sources */,
