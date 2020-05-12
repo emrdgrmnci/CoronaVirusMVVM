@@ -16,9 +16,5 @@ protocol MainDetailViewModelDelegate: class {
 protocol MainDetailViewModelInterface: class {
     var delegate: MainDetailViewModelDelegate? { get set }
     func load()
-//    func country(index: Int) -> Country
-//    func getCountryDetails()
-
-//    func viewWillDisappear()
 }
 
