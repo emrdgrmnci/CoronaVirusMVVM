@@ -87,9 +87,7 @@ class MainViewController: UIViewController {
 // MARK: - UITableViewDataSource
 
 extension MainViewController: UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
         let countryTitleLabel = UILabel()
         countryTitleLabel.frame = CGRect(x: 10, y: 20, width: 320, height: 20)
         countryTitleLabel.font = UIFont.boldSystemFont(ofSize: 17)
@@ -111,7 +109,6 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as? MainTableViewCell else {
             fatalError("MainTableViewCell not found")
         }
@@ -140,8 +137,6 @@ extension MainViewController: SkeletonTableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension MainViewController: UITableViewDelegate {
-
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
