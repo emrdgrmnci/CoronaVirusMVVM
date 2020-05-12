@@ -81,7 +81,6 @@ class MainViewController: UIViewController {
         searchController.searchBar.delegate = self
         searchController.searchBar.searchTextField.clearButtonMode = .whileEditing
         navigationItem.searchController = searchController
-        //        navigationItem.hidesSearchBarWhenScrolling = true
     }
 }
 
@@ -151,7 +150,6 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.selectCountry(at: indexPath.row)
-        //        routeToDetail(with: indexPath.row)
     }
 }
 
