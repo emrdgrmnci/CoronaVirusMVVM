@@ -27,7 +27,7 @@ class MainTableViewCell: UITableViewCell {
 
     func configure(with country: Country) {
         countryLabel.text = country.country
-        deathsLabel.text = "Deaths: \(country.deaths)"
+        deathsLabel.text = "Deaths: \(country.deaths ?? 0)"
         countryFlagImageView.setImage(with: country.countryInfo?.flag)
     }
 }
