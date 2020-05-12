@@ -19,10 +19,7 @@ class MainDetailViewController: UIViewController {
     @IBOutlet weak var todayDeathsLabel: UILabel!
     @IBOutlet weak var criticalCasesLabel: UILabel!
 
-    var viewModel2: MainDetailViewModelInterface!
-    
-    private var viewModel: CountryViewModel!
-    private var searchedViewModel: CountryViewModel!
+    var detailViewModel: MainDetailViewModelInterface!
     private var networkReachability = NetworkReachability()
 
     // MARK: - View's Lifecycle
@@ -39,36 +36,21 @@ class MainDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareView()
+        detailViewModel.delegate = self
+        detailViewModel.load()
     }
+}
 
-    // MARK: - Configuration
-
-    public func configure(with viewModel: CountryViewModel) {
-        self.viewModel = viewModel
-    }
-
-    public func searchedConfigure(with viewModel: CountryViewModel) {
-        self.searchedViewModel = viewModel
-    }
-
-    // MARK: - Preparation
-
-    private func prepareView() {
-
-        
-
-        title = viewModel.country
-
-        let imageURL = URL(string: viewModel.countryFlag)
+extension MainDetailViewController: MainDetailViewModelDelegate {
+    func prepareDetailViewInfos(_ presentation: CountryDetailPresentation) {
+        let imageURL = URL(string: presentation.countryFlagImage)
         backgroundImageView.sd_setImage(with: imageURL,
                                         placeholderImage: UIImage(named: "placeholder.png"))
-
-        confirmedCasesLabel.text = "Confirmed Cases: \(viewModel.cases)"
-        totalDeathsLabel.text = "Total Deaths: \(viewModel.deaths)"
-        totalRecoveredLabel.text = "Total Recovered: \(viewModel.recovered)"
-        todayCasesLabel.text = "Today Cases: \(viewModel.todayCases)"
-        todayDeathsLabel.text = "Today Deaths: \(viewModel.todayDeaths)"
-        criticalCasesLabel.text = "Critical Cases: \(viewModel.critical)"
+        confirmedCasesLabel.text = presentation.confirmedCasesLabelText
+        totalDeathsLabel.text = presentation.totalDeathsLabelText
+        totalRecoveredLabel.text = presentation.totalRecoveredLabelText
+        todayCasesLabel.text = presentation.todayCasesLabelText
+        todayDeathsLabel.text = presentation.todayDeathsLabelText
+        criticalCasesLabel.text = presentation.criticalCasesLabelText
     }
 }

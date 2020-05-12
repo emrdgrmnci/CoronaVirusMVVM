@@ -9,10 +9,16 @@
 import Foundation
 
 protocol MainDetailViewModelDelegate: class {
-    func showDetail(_ presentation: MovieDetailPresentation)
+     func prepareDetailViewInfos(_ presentation: CountryDetailPresentation)
+
 }
 
-protocol MainDetailViewModelProtocol {
+protocol MainDetailViewModelInterface: class {
     var delegate: MainDetailViewModelDelegate? { get set }
     func load()
+//    func country(index: Int) -> Country
+//    func getCountryDetails()
+
+//    func viewWillDisappear()
 }
+

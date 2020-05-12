@@ -37,14 +37,14 @@ class MainViewController: UIViewController {
     // MARK: - View's Lifecycle
 
     override func viewDidAppear(_ animated: Bool) {
-         //MARK: - NetworkReachability
+        //MARK: - NetworkReachability
 
-         if !networkReachability.isReachable {
-             let alert = UIAlertController(title: "Oops!", message: "You're offline! Check your network connection.", preferredStyle: .alert)
-             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-             self.present(alert, animated: true, completion: nil)
-         }
-     }
+        if !networkReachability.isReachable {
+            let alert = UIAlertController(title: "Oops!", message: "You're offline! Check your network connection.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,32 +142,16 @@ extension MainViewController: SkeletonTableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
 
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 
+    // MARK: - Routing
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
-        routeToDetail(with: indexPath.row)
-    }
-}
-
-// MARK: - Routing
-
-extension MainViewController {
-
-    func routeToDetail(with row: Int) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "MainDetailViewController") as? MainDetailViewController else { return }
-//        var countryDetailVM = countryListVM.countryAtIndex(row)
-//        if isSearching {
-//            countryDetailVM = CountryListPresentation(countryList: searchCountries).countryAtIndex(row)
-//        }
-//        detailVC.configure(with: countryDetailVM)
-//
-//        navigationController?.pushViewController(detailVC, animated: true)
+        viewModel.selectCountry(at: indexPath.row)
+        //        routeToDetail(with: indexPath.row)
     }
 }
 
@@ -193,13 +177,13 @@ extension MainViewController: UISearchBarDelegate {
     }
 }
 
-extension MainViewController: MainViewModelDelegate {
+extension MainViewController: MainViewModelDelegate{
     func notifyTableView() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
-    
+
     func notifyViewAfterSearchTextDidChange() {
         stackView.layoutIfNeeded()
         stackView.isHidden = true
@@ -211,14 +195,14 @@ extension MainViewController: MainViewModelDelegate {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5.0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5.0).isActive = true
     }
-    
+
     func notifyViewAfterSearchDidEnd() {
         stackView.layoutIfNeeded()
         stackView.isHidden = false
         worldWideLabel.isHidden = false
         coronaImageView.isHidden = false
     }
-    
+
     func prepareWorldViewInfos(_ presentation: GlobalPresentation) {
         worldCasesLabel.text = presentation.worldCasesLabelText
         worldDeathsLabel.text = presentation.worldDeathsLabelText
@@ -227,6 +211,12 @@ extension MainViewController: MainViewModelDelegate {
         worldActiveLabel.text = presentation.worldActiveLabelText
         worldAffectedCountriesLabel.text = presentation.worldAffectedCountriesLabelText
     }
+    func navigate(to route: MainViewRoute) {
+        switch route {
+        case .detail(let viewModel):
+            let viewController = MainDetailControllerBuilder.make(with: viewModel)
+            show(viewController, sender: nil)
+        }
+    }
+
 }
-
-

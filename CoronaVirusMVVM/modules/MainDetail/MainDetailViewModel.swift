@@ -8,15 +8,18 @@
 
 import Foundation
 
-protocol MainDetailViewModelInterface: class {
-    
+class MainDetailViewModel: MainDetailViewModelInterface {
+    weak var delegate: MainDetailViewModelDelegate?
+    private let presentation: CountryDetailPresentation
+
+    func load() {
+        delegate?.prepareDetailViewInfos(presentation)
+    }
+
+    init(countryDetail: Country) {
+        self.presentation = CountryDetailPresentation(country: countryDetail)
+    }
 }
 
-class MainDetailViewModel {
-    
-    
-}
 
-extension MainDetailViewModel: MainDetailViewModelInterface {
-    
-}
+

@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct CountryDetailPresentation {
 
+    let countryFlagImage: String
     let confirmedCasesLabelText: String
     let totalDeathsLabelText: String
     let totalRecoveredLabelText: String
@@ -18,6 +20,7 @@ struct CountryDetailPresentation {
     let criticalCasesLabelText: String
 
     init(country: Country) {
+        countryFlagImage = country.countryInfo?.flag ?? ""
         confirmedCasesLabelText = "Confirmed Cases: \(country.cases ?? 0)"
         totalDeathsLabelText = "Total Deaths: \(country.deaths ?? 0)"
         totalRecoveredLabelText = "Today Recovered: \(country.recovered ?? 0)"

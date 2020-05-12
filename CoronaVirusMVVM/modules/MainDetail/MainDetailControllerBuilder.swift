@@ -6,14 +6,14 @@
 //  Copyright © 2020 Ali Emre Degirmenci. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class MainDetailControllerBuilder {
 
-    static func make(with viewModel: MovieDetailViewModelProtocol) -> MainDetailViewController {
+    static func make(with viewModel: MainDetailViewModelInterface) -> MainDetailViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "MainDetailViewController") as! MainDetailViewController
-        viewController.viewModel = viewModel
+        viewController.detailViewModel = viewModel
         return viewController
     }
 }

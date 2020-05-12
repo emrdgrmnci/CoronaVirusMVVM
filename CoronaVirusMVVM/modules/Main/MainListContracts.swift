@@ -8,16 +8,10 @@
 
 import Foundation
 
-protocol MainViewModelDelegate: class {
-    func notifyTableView()
-    func notifyViewAfterSearchTextDidChange()
-    func notifyViewAfterSearchDidEnd()
-    func prepareWorldViewInfos(_ presentation: GlobalPresentation)
-}
-
 protocol MainViewModelInterface: class {
     var delegate: MainViewModelDelegate? { get set }
     var countryCount: Int { get }
+    func selectCountry(at index: Int)
 
     func country(index: Int) -> Country
     func getAllCountries()
@@ -30,3 +24,18 @@ protocol MainViewModelInterface: class {
 
     func viewWillDisappear()
 }
+
+protocol MainViewModelDelegate: class {
+    func notifyTableView()
+    func notifyViewAfterSearchTextDidChange()
+    func notifyViewAfterSearchDidEnd()
+    func prepareWorldViewInfos(_ presentation: GlobalPresentation)
+    func navigate(to route: MainViewRoute)
+}
+
+enum MainViewRoute {
+    case detail(MainDetailViewModelInterface)
+}
+
+
+
