@@ -35,7 +35,6 @@ class MainViewController: UIViewController {
     private var networkReachability = NetworkReachability()
 
     // MARK: - View's Lifecycle
-
     override func viewDidAppear(_ animated: Bool) {
         networkControl()
     }
@@ -150,7 +149,6 @@ extension MainViewController: UITableViewDelegate {
 }
 
 // MARK: - UISearchBarDelegate
-
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchBarTextDidChange(searchText)

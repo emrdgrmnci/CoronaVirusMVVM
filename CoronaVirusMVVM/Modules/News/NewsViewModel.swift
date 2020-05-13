@@ -31,11 +31,11 @@ extension NewsViewModel: NewsViewModelInterface {
     }
 
     var newsCount: Int {
-        news.count
+       return news.count
     }
 
     func news(index: Int) -> News {
-        news[index]
+       return news[index]
     }
 
     // MARK - Lifcycle Methods
@@ -43,6 +43,7 @@ extension NewsViewModel: NewsViewModelInterface {
         delegate?.notifyTableView()
     }
 
+    // MARK - Network Calls
     func getAllNews() {
         let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=\(apiKey)")!
         service.getNews(url: url) { [weak self] (news) in
