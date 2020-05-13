@@ -3,4 +3,86 @@
    uuid = "730327C5-9190-4C3D-9360-A3EDE580D94E"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B394EC6C-90C5-4E1E-98B5-EC8B60BD790A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoronaVirusMVVM/Modules/News/NewsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getAllNews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F123439-2D84-44B0-82B0-4413DFEF11D1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoronaVirusMVVM/Modules/News/NewsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getAllNews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D38D372-95DD-46E2-9B62-81B3A598EE54"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoronaVirusMVVM/Modules/News/NewsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getAllNews()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1D38D372-95DD-46E2-9B62-81B3A598EE54 - 196a36d5611c8b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CoronaVirusMVVM.NewsViewModel.getAllNews() -&gt; ()"
+                  moduleName = "CoronaVirusMVVM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aliemredegirmenci/Developer/CoronaVirusMVVM/CoronaVirusMVVM/Modules/News/NewsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "753">
+               </Location>
+               <Location
+                  uuid = "1D38D372-95DD-46E2-9B62-81B3A598EE54 - 4ded7234d50dfd64"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;CoronaVirusMVVM.News&gt;&gt;) -&gt; () in CoronaVirusMVVM.NewsViewModel.getAllNews() -&gt; ()"
+                  moduleName = "CoronaVirusMVVM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aliemredegirmenci/Developer/CoronaVirusMVVM/CoronaVirusMVVM/Modules/News/NewsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "115">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

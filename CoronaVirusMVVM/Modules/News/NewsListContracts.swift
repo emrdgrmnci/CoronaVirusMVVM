@@ -9,22 +9,22 @@
 import Foundation
 
 protocol NewsViewModelInterface: class {
-    var delegate: MainViewModelDelegate? { get set }
+    var delegate: NewsViewModelDelegate? { get set }
     var newsCount: Int { get }
     func selectNews(at index: Int)
 
     func news(index: Int) -> News
     func getAllNews()
 
-    func viewWillDisappear()
+//    func viewWillDisappear()
 }
 
 protocol NewsViewModelDelegate: class {
     func notifyTableView()
-    func prepareNewsViewInfos(_ presentation: GlobalPresentation)
+//    func prepareNewsViewInfos(_ presentation: NewsDetailPresentation)
     func navigate(to route: NewsViewRoute)
 }
 
 enum NewsViewRoute {
-    case detail(NewsViewModelInterface)
+    case detail(NewsDetailViewModelInterface)
 }

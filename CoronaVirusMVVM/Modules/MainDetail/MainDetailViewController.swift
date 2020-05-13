@@ -26,7 +26,6 @@ class MainDetailViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         //MARK: - NetworkReachability
-
         if !networkReachability.isReachable {
             let alert = UIAlertController(title: "Oops!", message: "You're offline! Check your network connection.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

@@ -6,14 +6,15 @@
 //  Copyright © 2020 Ali Emre Degirmenci. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 final class NewsViewControllerBuilder {
-    static func make(with viewModel: MainDetailViewModelInterface) -> NewsDetailViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "NewsDetailViewController") as! NewsDetailViewController
-        viewController.detailViewModel = viewModel
-        return viewController
+    static func make() -> NewsViewController {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let view = storyBoard.instantiateViewController(identifier: "NewsViewController") as! NewsViewController
+        let service = APIService()
+        let viewModel = NewsViewModel(service: service)
+        view.viewModel = viewModel
+        return view
     }
 }
