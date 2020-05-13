@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
             viewModel.delegate = self
         }
     }
-    
+
     private var shouldAnimate = true
     private var networkReachability = NetworkReachability()
 
@@ -123,7 +123,7 @@ extension MainViewController: UITableViewDataSource {
         
         let country = viewModel.country(index: indexPath.row)
         cell.configure(with: country)
-        
+
         return cell
     }
 }

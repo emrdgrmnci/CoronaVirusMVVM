@@ -8,42 +8,76 @@
 
 import Foundation
 
-struct NewsResponse: Codable {
-    let status: String
-    let totalResults: Int
-    var news: [News]
+struct NewsResponse : Codable {
+    let status : String?
+    let totalResults : Int?
+    let news : [News]?
 
-    static func getExample() -> News {
-        return News(source: Source(id: "", name: "sozcu.com.tr"), author: "Sözcü", title: "Son dakika… İran’da ölü sayısı 3 bin 452’ye ulaştı", description: "Komşu İran'da corona virüsü nedeniyle hayatını kaybeden hastaların sayısı 3 bin 452'ye yükseldi.", url: "https://www.sozcu.com.tr/2020/dunya/son-dakika-iranda-olu-sayisi-3-bin-452ye-ulasti-5725048/", urlToImage: "https://i.sozcu.com.tr/wp-content/uploads/2018/03/sondakika-20180305-670x371.jpg", publishedAt: "2020-04-04T09:56:50Z", content: "Salk Bakanl yetkilileri ran'da salgnla ilgili son verileri kamuoyuna duyurdu.\r\nSalk Bakanl Sözcüsü Kiyanu Cihanpur’un aktardna göre ülkede son 24 saatte 158 kii daha virüs nedeniyle yaamn yitirdi.\r\nBöylelikle ran'da toplam ölü says 3 bin 452’ye yükseldi. Ülke… [+62 chars]")
+    enum CodingKeys: String, CodingKey {
+
+        case status = "status"
+        case totalResults = "totalResults"
+        case news = "articles"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        status = try values.decodeIfPresent(String.self, forKey: .status)
+        totalResults = try values.decodeIfPresent(Int.self, forKey: .totalResults)
+        news = try values.decodeIfPresent([News].self, forKey: .news)
     }
 }
 
-// MARK: - Article
-struct News: Codable, Hashable {
-
-    let source: Source?
-    let author, title, description: String?
-    let url: String?
-    let urlToImage: String?
-    let publishedAt: String?
-    let content: String?
+struct News: Codable {
+    let source : Source?
+    let author : String?
+    let title : String?
+    let description : String?
+    let url : String?
+    let urlToImage : String?
+    let publishedAt : String?
+    let content : String?
 
     enum CodingKeys: String, CodingKey {
-        case source, author, title
-        case description
-        case url, urlToImage, publishedAt, content
-    }
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(title)
+
+        case source = "source"
+        case author = "author"
+        case title = "title"
+        case description = "description"
+        case url = "url"
+        case urlToImage = "urlToImage"
+        case publishedAt = "publishedAt"
+        case content = "content"
     }
 
-    static func == (lhs: News, rhs: News) -> Bool {
-        return lhs.title == rhs.title && lhs.source?.name == rhs.source?.name
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        source = try values.decodeIfPresent(Source.self, forKey: .source)
+        author = try values.decodeIfPresent(String.self, forKey: .author)
+        title = try values.decodeIfPresent(String.self, forKey: .title)
+        description = try values.decodeIfPresent(String.self, forKey: .description)
+        url = try values.decodeIfPresent(String.self, forKey: .url)
+        urlToImage = try values.decodeIfPresent(String.self, forKey: .urlToImage)
+        publishedAt = try values.decodeIfPresent(String.self, forKey: .publishedAt)
+        content = try values.decodeIfPresent(String.self, forKey: .content)
     }
+
 }
 
 // MARK: - Source
-struct Source: Codable {
-    let id: String?
-    let name: String?
+struct Source : Codable {
+    let id : String?
+    let name : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case id = "id"
+        case name = "name"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(String.self, forKey: .id)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
+    }
 }

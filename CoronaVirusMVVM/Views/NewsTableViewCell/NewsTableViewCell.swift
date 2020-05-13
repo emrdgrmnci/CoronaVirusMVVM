@@ -27,8 +27,9 @@ class NewsTableViewCell: UITableViewCell {
         hideSkeleton()
     }
 
-    func configure(with news: News) {
-        newsImageView.sd_setImage(with: URL(string: "\(String(describing: news.urlToImage))"), placeholderImage: UIImage(named: "placeholder.png"))
+    func configure(with news: NewsResponse) {
+        let news = news.news
+        newsImageView.sd_setImage(with: URL(string: "\(String(describing: news))"), placeholderImage: UIImage(named: "placeholder.png"))
         newsContentLabel.text = news.title
         newsSourceLabel.text = news.source?.name
         newsPublishedLabel.text = formattedDate(of: news.publishedAt ?? "12-04-2020")
