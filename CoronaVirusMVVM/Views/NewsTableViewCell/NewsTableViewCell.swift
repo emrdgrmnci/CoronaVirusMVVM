@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SDWebImage
+import Foundation
 
 class NewsTableViewCell: UITableViewCell {
 
@@ -25,10 +27,19 @@ class NewsTableViewCell: UITableViewCell {
         hideSkeleton()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(with news: News) {
+        newsImageView.sd_setImage(with: URL(string: "\(String(describing: news.urlToImage))"), placeholderImage: UIImage(named: "placeholder.png"))
+        newsContentLabel.text = news.title
+        newsSourceLabel.text = news.source?.name
+        newsPublishedLabel.text = formattedDate(of: news.publishedAt ?? "12-04-2020")
     }
 
+    public func formattedDate(of publishedAt: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+        let publishedDate = formatter.date(from: publishedAt)
+        formatter.dateFormat = "dd-MMMM-yyyy"
+        let formattedDate = formatter.string(from: publishedDate!)
+        return formattedDate
+    }
 }

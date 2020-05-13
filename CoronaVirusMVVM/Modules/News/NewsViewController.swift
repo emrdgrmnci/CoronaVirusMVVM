@@ -13,13 +13,19 @@ import SkeletonView
 
 class NewsViewController: UIViewController {
 
-    private var articleListVM : ArticleListViewModel!
-
     let apiKey = Constants.shared.newsApiKey
+
+    @IBOutlet weak var tableView: UITableView!
+
+    var viewModel: NewsViewModelInterface! {
+        didSet {
+            viewModel.delegate = self
+        }
+    }
+
     private var shouldAnimate = true
     private var networkReachability = NetworkReachability()
 
-    @IBOutlet weak var tableView: UITableView!
 
     // MARK: - View's Lifecycle
 
@@ -45,11 +51,11 @@ class NewsViewController: UIViewController {
             self.tableView.reloadData()
         }
 
-        getNews()
+        viewModel.getAllNews()
+        setupNavigationBar()
     }
 
     // MARK: - NavigationBar
-
     func setupNavigationBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.isTranslucent = false
@@ -57,40 +63,36 @@ class NewsViewController: UIViewController {
     }
 
     // MARK: - Requests
-
-    func getNews() {
-        let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=\(apiKey)")!
-        APIService().getNews(url: url) { [weak self] articles in
-
-            guard let self = self,
-                let articles = articles else { return }
-
-            self.articleListVM = ArticleListViewModel(articles: articles)
-
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-
-        }
-    }
-
-    public func formattedDate(of publishedAt: String) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-        let publishedDate = formatter.date(from: publishedAt)
-        formatter.dateFormat = "dd-MMMM-yyyy"
-        let formattedDate = formatter.string(from: publishedDate!)
-        return formattedDate
-    }
+//    func getNews() {
+//        let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=\(apiKey)")!
+//        APIService().getNews(url: url) { [weak self] articles in
+//
+//            guard let self = self,
+//                let articles = articles else { return }
+//
+//            self.articleListVM = ArticleListViewModel(articles: articles)
+//
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//
+//        }
+//    }
+//
+//
+//
+//
+//
+//
+//
+//
+//   
 }
 
 // MARK: - UITableViewDataSource
-
 extension NewsViewController: UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.articleListVM == nil ? 0 : self.articleListVM.numberOfRowSection(section)
-
+        return viewModel.newsCount
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell else {
@@ -103,7 +105,7 @@ extension NewsViewController: UITableViewDataSource {
             cell.hideAnimation()
         }
 
-        let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
+        let news = self.articleListVM.articleAtIndex(indexPath.row)
 
         cell.newsImageView.sd_setImage(with: URL(string: "\(String(describing: articleVM.urlToImage))"), placeholderImage: UIImage(named: "placeholder.png"))
         cell.newsContentLabel.text = articleVM.title

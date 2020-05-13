@@ -74,6 +74,7 @@ class MainViewController: UIViewController {
         viewModel.viewWillDisappear()
     }
 
+    // MARK: - NavigationBar
     func setupNavigationBar() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.setStatusBar(backgroundColor: UIColor(displayP3Red: 32/255, green: 200/255, blue: 182/255, alpha: 1))
@@ -85,7 +86,6 @@ class MainViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let countryTitleLabel = UILabel()

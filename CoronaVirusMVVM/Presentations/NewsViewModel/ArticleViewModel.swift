@@ -9,7 +9,7 @@
 import Foundation
 
 struct ArticleListViewModel {
-    let articles: [Article]
+    let articles: [News]
 }
 
 extension ArticleListViewModel {
@@ -29,11 +29,11 @@ extension ArticleListViewModel {
 }
 
 struct ArticleViewModel {
-    private let article : Article
+    private let article : News
 }
 
 extension ArticleViewModel {
-    init (_ article: Article) {
+    init (_ article: News) {
         self.article = article
     }
 }
