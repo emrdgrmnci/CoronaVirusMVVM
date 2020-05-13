@@ -26,7 +26,6 @@ class MainViewModel {
     
 }
 
-
 extension MainViewModel: MainViewModelInterface {
     func selectCountry(at index: Int) {
         let countryDetail = countries[index]

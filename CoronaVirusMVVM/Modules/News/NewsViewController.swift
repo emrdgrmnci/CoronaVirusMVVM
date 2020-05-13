@@ -28,7 +28,6 @@ class NewsViewController: UIViewController {
 
 
     // MARK: - View's Lifecycle
-
     override func viewDidAppear(_ animated: Bool) {
         networkControl()
     }
@@ -48,6 +47,14 @@ class NewsViewController: UIViewController {
         viewModel.getAllNews()
         setupNavigationBar()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+           tableView.reloadData()
+       }
+
+       override func viewWillDisappear(_ animated: Bool) {
+           viewModel.viewWillDisappear()
+       }
 
     //MARK: - NetworkReachability
     func networkControl() {
@@ -101,7 +108,7 @@ extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
+
     // MARK: - Routing
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

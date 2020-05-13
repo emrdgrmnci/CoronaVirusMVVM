@@ -41,7 +41,7 @@ class MainDetailViewController: UIViewController {
 }
 
 extension MainDetailViewController: MainDetailViewModelDelegate {
-    func prepareDetailViewInfos(_ presentation: CountryDetailPresentation) {
+    func prepareDetailViewInfos(_ presentation: MainDetailPresentation) {
         let imageURL = URL(string: presentation.countryFlagImage)
         backgroundImageView.sd_setImage(with: imageURL,
                                         placeholderImage: UIImage(named: "placeholder.png"))

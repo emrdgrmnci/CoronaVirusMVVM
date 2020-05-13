@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MainDetailViewModelDelegate: class {
-     func prepareDetailViewInfos(_ presentation: CountryDetailPresentation)
+     func prepareDetailViewInfos(_ presentation: MainDetailPresentation)
 
 }
 

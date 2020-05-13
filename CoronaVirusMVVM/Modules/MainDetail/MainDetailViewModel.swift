@@ -10,14 +10,14 @@ import Foundation
 
 class MainDetailViewModel: MainDetailViewModelInterface {
     weak var delegate: MainDetailViewModelDelegate?
-    private let presentation: CountryDetailPresentation
+    private let presentation: MainDetailPresentation
 
     func load() {
         delegate?.prepareDetailViewInfos(presentation)
     }
 
     init(countryDetail: Country) {
-        self.presentation = CountryDetailPresentation(country: countryDetail)
+        self.presentation = MainDetailPresentation(country: countryDetail)
     }
 }
 

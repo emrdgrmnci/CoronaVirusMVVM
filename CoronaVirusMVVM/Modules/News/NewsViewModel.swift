@@ -38,6 +38,11 @@ extension NewsViewModel: NewsViewModelInterface {
         news[index]
     }
 
+    // MARK - Lifcycle Methods
+    func viewWillDisappear() {
+        delegate?.notifyTableView()
+    }
+
     func getAllNews() {
         let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=\(apiKey)")!
         service.getNews(url: url) { [weak self] (news) in

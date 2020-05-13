@@ -16,7 +16,7 @@ protocol NewsViewModelInterface: class {
     func news(index: Int) -> News
     func getAllNews()
 
-//    func viewWillDisappear()
+    func viewWillDisappear()
 }
 
 protocol NewsViewModelDelegate: class {

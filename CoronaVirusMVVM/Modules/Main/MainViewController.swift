@@ -12,19 +12,19 @@ import SDWebImage
 import SkeletonView
 
 class MainViewController: UIViewController {
-    
+
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var worldWideLabel: UILabel!
     @IBOutlet weak var coronaImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    
+
     @IBOutlet private weak var worldCasesLabel: UILabel!
     @IBOutlet private weak var worldDeathsLabel: UILabel!
     @IBOutlet private weak var worldRecoveredLabel: UILabel!
     @IBOutlet private weak var worldUpdatedLabel: UILabel!
     @IBOutlet private weak var worldActiveLabel: UILabel!
     @IBOutlet private weak var worldAffectedCountriesLabel: UILabel!
-    
+
     var viewModel: MainViewModelInterface! {
         didSet {
             viewModel.delegate = self
@@ -33,21 +33,21 @@ class MainViewController: UIViewController {
     
     private var shouldAnimate = true
     private var networkReachability = NetworkReachability()
-    
+
     // MARK: - View's Lifecycle
-    
+
     override func viewDidAppear(_ animated: Bool) {
         networkControl()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         title = "COVID-19"
-        
+
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.shouldAnimate = false
             self.tableView.reloadData()
@@ -58,16 +58,16 @@ class MainViewController: UIViewController {
         
         setupNavigationBar()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         worldWideLabel.text = "Worldwide"
         tableView.reloadData()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         viewModel.viewWillDisappear()
     }
-    
+
     //MARK: - NetworkReachability
     func networkControl() {
         if !networkReachability.isReachable {
@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
+
     // MARK: - NavigationBar
     func setupNavigationBar() {
         navigationController?.navigationBar.isTranslucent = false
@@ -96,17 +96,17 @@ extension MainViewController: UITableViewDataSource {
         countryTitleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         countryTitleLabel.textColor = .systemGray
         countryTitleLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
-        
+
         let headerView = UIView()
         headerView.addSubview(countryTitleLabel)
-        
+
         return headerView
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Countries and Deaths"
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.countryCount
     }
@@ -115,7 +115,7 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as? MainTableViewCell else {
             fatalError("MainTableViewCell not found")
         }
-        
+
         if shouldAnimate {
             cell.showAnimatedGradientSkeleton()
         } else {
@@ -141,7 +141,7 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
+
     // MARK: - Routing
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -155,16 +155,16 @@ extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchBarTextDidChange(searchText)
     }
-    
+
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         viewModel.searchBarTextDidBeginEditing()
     }
-    
+
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
         viewModel.searchBarTextDidEndEditing()
     }
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
         viewModel.searchBarCancelButtonClicked()
@@ -177,26 +177,26 @@ extension MainViewController: MainViewModelDelegate{
             self.tableView.reloadData()
         }
     }
-    
+
     func notifyViewAfterSearchTextDidChange() {
         stackView.layoutIfNeeded()
         stackView.isHidden = true
         worldWideLabel.text = ""
         coronaImageView.isHidden = true
-        
+
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5.0).isActive = true
         tableView.topAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: 10.0).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5.0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5.0).isActive = true
     }
-    
+
     func notifyViewAfterSearchDidEnd() {
         stackView.layoutIfNeeded()
         stackView.isHidden = false
         worldWideLabel.isHidden = false
         coronaImageView.isHidden = false
     }
-    
+
     func prepareWorldViewInfos(_ presentation: GlobalPresentation) {
         worldCasesLabel.text = presentation.worldCasesLabelText
         worldDeathsLabel.text = presentation.worldDeathsLabelText
@@ -205,6 +205,7 @@ extension MainViewController: MainViewModelDelegate{
         worldActiveLabel.text = presentation.worldActiveLabelText
         worldAffectedCountriesLabel.text = presentation.worldAffectedCountriesLabelText
     }
+    
     func navigate(to route: MainViewRoute) {
         switch route {
         case .detail(let viewModel):
@@ -212,5 +213,4 @@ extension MainViewController: MainViewModelDelegate{
             show(viewController, sender: nil)
         }
     }
-    
 }

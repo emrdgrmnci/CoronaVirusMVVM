@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct CountryDetailPresentation {
+struct MainDetailPresentation {
 
     let countryFlagImage: String
     let confirmedCasesLabelText: String
