@@ -28,7 +28,6 @@ class NewsDetailViewController: UIViewController {
     }
 
     // MARK: - Configuration
-
     public func configure(with viewModel: ArticleViewModel) {
         self.articleViewModel = viewModel
     }

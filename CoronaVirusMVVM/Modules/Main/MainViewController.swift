@@ -127,7 +127,6 @@ extension MainViewController: UITableViewDataSource {
 }
 
 // MARK: - SkeletonViewTableViewDataSource
-
 extension MainViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "MainTableViewCell"
@@ -135,7 +134,6 @@ extension MainViewController: SkeletonTableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100

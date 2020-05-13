@@ -63,30 +63,30 @@ class NewsViewController: UIViewController {
     }
 
     // MARK: - Requests
-//    func getNews() {
-//        let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=\(apiKey)")!
-//        APIService().getNews(url: url) { [weak self] articles in
-//
-//            guard let self = self,
-//                let articles = articles else { return }
-//
-//            self.articleListVM = ArticleListViewModel(articles: articles)
-//
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//
-//        }
-//    }
-//
-//
-//
-//
-//
-//
-//
-//
-//   
+    //    func getNews() {
+    //        let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=\(apiKey)")!
+    //        APIService().getNews(url: url) { [weak self] articles in
+    //
+    //            guard let self = self,
+    //                let articles = articles else { return }
+    //
+    //            self.articleListVM = ArticleListViewModel(articles: articles)
+    //
+    //            DispatchQueue.main.async {
+    //                self.tableView.reloadData()
+    //            }
+    //
+    //        }
+    //    }
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
 }
 
 // MARK: - UITableViewDataSource
@@ -105,19 +105,14 @@ extension NewsViewController: UITableViewDataSource {
             cell.hideAnimation()
         }
 
-        let news = self.articleListVM.articleAtIndex(indexPath.row)
-
-        cell.newsImageView.sd_setImage(with: URL(string: "\(String(describing: articleVM.urlToImage))"), placeholderImage: UIImage(named: "placeholder.png"))
-        cell.newsContentLabel.text = articleVM.title
-        cell.newsSourceLabel.text = articleVM.source
-        cell.newsPublishedLabel.text = formattedDate(of: articleVM.publishedAt)
+        let news = viewModel.news(index: indexPath.row)
+        cell.configure(with: news)
         cell.hideAnimation()
         return cell
     }
 }
 
 // MARK: - SkeletonViewTableViewDataSource
-
 extension NewsViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "NewsTableViewCell"
@@ -125,29 +120,51 @@ extension NewsViewController: SkeletonTableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+
+    // MARK: - Routing
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        routeToDetail(with: indexPath.row)
+        viewModel.selectNews(at: indexPath.row)
     }
 }
 
-// MARK: - Routing
-
-extension NewsViewController {
-    func routeToDetail(with row: Int) {
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "NewsDetailViewController") as? NewsDetailViewController else { return }
-
-        let articleDetailVM = articleListVM.articleAtIndex(row)
-        detailVC.configure(with: articleDetailVM)
-
-        navigationController?.pushViewController(detailVC, animated: true)
+extension NewsViewController: NewsViewModelDelegate{
+    func notifyTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
+
+    func prepareNewsViewInfos(_ presentation: GlobalPresentation) {
+        <#code#>
+    }
+
+    func navigate(to route: NewsViewRoute) {
+        switch route {
+        case .detail(let viewModel):
+            let viewController = NewsViewControllerBuilder.make(with: viewModel)
+            show(viewController, sender: nil)
+        }
+    }
+
+
 }
+
+//
+//extension NewsViewController {
+//    func routeToDetail(with row: Int) {
+//
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "NewsDetailViewController") as? NewsDetailViewController else { return }
+//
+//        let articleDetailVM = articleListVM.articleAtIndex(row)
+//        detailVC.configure(with: articleDetailVM)
+//
+//        navigationController?.pushViewController(detailVC, animated: true)
+//    }
+//}
