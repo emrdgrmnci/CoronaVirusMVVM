@@ -321,17 +321,17 @@
 			children = (
 				47295CF12440CEF3002FB7D5 /* News Detail Presentation */,
 				47F70FF52436A3D800DC85D2 /* Global Presentation */,
-				47F70FF42436A3CF00DC85D2 /* Country Detail Presentation */,
+				47F70FF42436A3CF00DC85D2 /* Main Detail Presentation */,
 			);
 			path = Presentations;
 			sourceTree = "<group>";
 		};
-		47F70FF42436A3CF00DC85D2 /* Country Detail Presentation */ = {
+		47F70FF42436A3CF00DC85D2 /* Main Detail Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				4796681A246AE4AF00401FDC /* MainDetailPresentation.swift */,
 			);
-			path = "Country Detail Presentation";
+			path = "Main Detail Presentation";
 			sourceTree = "<group>";
 		};
 		47F70FF52436A3D800DC85D2 /* Global Presentation */ = {
