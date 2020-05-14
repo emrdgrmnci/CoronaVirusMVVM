@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcN-gv-8Hp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcN-gv-8Hp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -407,10 +407,10 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="newsContentLabel" destination="dqL-Yh-QGD" id="wxc-qw-2aG"/>
-                                            <outlet property="newsImageView" destination="S2N-7o-XQT" id="wpT-4D-T36"/>
-                                            <outlet property="newsPublishedLabel" destination="1bj-Ma-tBP" id="64b-fR-ERI"/>
-                                            <outlet property="newsSourceLabel" destination="W9Y-5i-WYG" id="gPW-UI-CGI"/>
+                                            <outlet property="newsContentLabel" destination="dqL-Yh-QGD" id="eRR-2f-nOJ"/>
+                                            <outlet property="newsImageView" destination="S2N-7o-XQT" id="mSd-vv-P58"/>
+                                            <outlet property="newsPublishedLabel" destination="1bj-Ma-tBP" id="wcM-n5-Kow"/>
+                                            <outlet property="newsSourceLabel" destination="W9Y-5i-WYG" id="iGm-0x-C2P"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -430,7 +430,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="M6b-aT-Kt2"/>
                     <connections>
-                        <outlet property="tableView" destination="ACa-JL-XJa" id="RVe-nm-igz"/>
+                        <outlet property="tableView" destination="ACa-JL-XJa" id="GEs-X9-SUo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upF-fo-Zle" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -465,7 +465,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="T2I-fK-aUE"/>
                     <connections>
-                        <outlet property="webView" destination="3fY-DM-Yen" id="pXK-Y8-si6"/>
+                        <outlet property="webView" destination="3fY-DM-Yen" id="rYl-x0-yGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ash-l7-pt6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -515,12 +515,12 @@
             <point key="canvasLocation" x="1048" y="840"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <image name="globe" catalog="system" width="64" height="60"/>
-        <image name="n.circle" catalog="system" width="64" height="60"/>
-        <image name="n.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="n.circle" catalog="system" width="128" height="121"/>
+        <image name="n.circle.fill" catalog="system" width="128" height="121"/>
         <image name="placeholder" width="30" height="30"/>
         <image name="virus" width="512" height="512"/>
     </resources>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -83,11 +83,11 @@ extension MainViewModel: MainViewModelInterface {
     
     func getAllCases() {
         let url = URL(string: "https://corona.lmao.ninja/v2/all")!
-        service.getGlobalCases(url: url) { (global) in
+        service.getGlobalCases(url: url) { [weak self] (global) in
             guard let global = global else { return }
             let presentation = GlobalPresentation.init(global: global)
             DispatchQueue.main.async {
-                self.delegate?.prepareWorldViewInfos(presentation)
+                self?.delegate?.prepareWorldViewInfos(presentation)
             }
         }
     }
