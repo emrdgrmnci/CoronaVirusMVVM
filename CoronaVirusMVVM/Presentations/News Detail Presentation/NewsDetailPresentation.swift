@@ -12,8 +12,10 @@ import Foundation
 
 struct NewsDetailPresentation {
     let newsDetailURL: String
+    let newsDetailSource: String
 
     init(news: News) {
         newsDetailURL = news.url ?? "https://www.google.com"
+        newsDetailSource = news.source?.name ?? "No Title!"
     }
 }

@@ -31,7 +31,7 @@ class NewsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -128,13 +128,4 @@ extension NewsViewController: NewsViewModelDelegate{
             show(viewController, sender: nil)
         }
     }
-
-//    func prepareWorldViewInfos(_ presentation: GlobalPresentation) {
-        //        worldCasesLabel.text = presentation.worldCasesLabelText
-        //        worldDeathsLabel.text = presentation.worldDeathsLabelText
-        //        worldRecoveredLabel.text = presentation.worldRecoveredLabelText
-        //        worldUpdatedLabel.text = presentation.worldUpdatedLabelText
-        //        worldActiveLabel.text = presentation.worldActiveLabelText
-        //        worldAffectedCountriesLabel.text = presentation.worldAffectedCountriesLabelText
-//    }
 }
