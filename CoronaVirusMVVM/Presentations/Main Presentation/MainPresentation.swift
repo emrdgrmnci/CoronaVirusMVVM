@@ -6,18 +6,18 @@
 //  Copyright © 2020 Ali Emre Degirmenci. All rights reserved.
 //
 
-import Foundation
-import UIKit
-
-struct MainPresentation {
-
-    let countryLabelText: String
-    let deathsLabelText: Int
-    let countryFlagImageView: String
-
-    init(country: Country) {
-        countryLabelText = country.country ?? ""
-        deathsLabelText = country.deaths ?? 0
-        countryFlagImageView = country.countryInfo?.flag ?? ""
-    }
-}
+//import Foundation
+//import UIKit
+//
+//struct MainPresentation {
+//
+//    let countryLabelText: String
+//    let deathsLabelText: Int
+//    let countryFlagImageView: String
+//
+//    init(country: Country) {
+//        countryLabelText = country.country ?? ""
+//        deathsLabelText = country.deaths ?? 0
+//        countryFlagImageView = country.countryInfo?.flag ?? ""
+//    }
+//}

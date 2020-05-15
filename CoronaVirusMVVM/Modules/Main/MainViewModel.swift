@@ -76,7 +76,7 @@ extension MainViewModel: MainViewModelInterface {
     func getAllCountries() {
         let url = URL(string: "https://corona.lmao.ninja/v2/countries?sort=country")!
         service.getCountries(url: url) { [weak self] (countries) in
-            self?.countries = countries ?? []
+            self?.countries = countries?.reversed() ?? []
             self?.delegate?.notifyTableView()
         }
     }
