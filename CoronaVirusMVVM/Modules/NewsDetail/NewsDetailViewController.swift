@@ -16,6 +16,7 @@ class NewsDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+         title = "NEWS"
         detailViewModel.delegate = self
         detailViewModel.load()
     }
