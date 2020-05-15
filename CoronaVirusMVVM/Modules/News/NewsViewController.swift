@@ -31,7 +31,7 @@ class NewsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "NEWS"
         tableView.delegate = self
         tableView.dataSource = self
 

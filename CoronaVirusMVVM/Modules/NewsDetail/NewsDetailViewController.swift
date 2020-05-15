@@ -16,7 +16,6 @@ class NewsDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         detailViewModel.delegate = self
         detailViewModel.load()
     }
@@ -26,5 +25,6 @@ extension NewsDetailViewController: NewsDetailViewModelDelegate {
     func prepareDetailViewInfos(_ presentation: NewsDetailPresentation) {
         guard let detailURL = URL(string: presentation.newsDetailURL) else { return }
         webView.load(URLRequest(url: detailURL))
+        title = presentation.newsDetailSource
     }
 }
