@@ -28,12 +28,17 @@ class MainViewModel {
 
 extension MainViewModel: MainViewModelInterface {
     func selectCountry(at index: Int) {
-        let countryDetail = countries[index]
-        let viewModel = MainDetailViewModel(countryDetail: countryDetail)
-        delegate?.navigate(to: .detail(viewModel))
+        if isSearching {
+            let searchDetail = filteredCountries[index]
+            let viewModel = MainDetailViewModel(countryDetail: searchDetail)
+            delegate?.navigate(to: .detail(viewModel))
+        } else {
+            let countryDetail = countries[index]
+            let viewModel = MainDetailViewModel(countryDetail: countryDetail)
+            delegate?.navigate(to: .detail(viewModel))
+        }
     }
 
-    
     var countryCount: Int {
         return isSearching ? filteredCountries.count : countries.count
     }
