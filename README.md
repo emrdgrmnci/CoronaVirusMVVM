@@ -10,7 +10,7 @@ Purpose of the project
 Here are the screens
 ======================
 <p float="left">
-  <img src="ScreenImages/CovidScreens.png" width="350" height= "758"/>&nbsp; 
+  <img src="ScreenImages/CovidScreens.png" width="1200" height= "358"/>&nbsp; 
   </br> 
 </p>
 
