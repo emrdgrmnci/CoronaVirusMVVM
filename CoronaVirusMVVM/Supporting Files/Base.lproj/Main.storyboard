@@ -353,7 +353,6 @@
                                                     <rect key="frame" x="108" y="15" width="267" height="49"/>
                                                     <string key="text">News ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews Content</string>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
