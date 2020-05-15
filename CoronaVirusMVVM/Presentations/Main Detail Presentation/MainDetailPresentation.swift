@@ -17,6 +17,7 @@ struct MainDetailPresentation {
     let todayCasesLabelText: String
     let todayDeathsLabelText: String
     let criticalCasesLabelText: String
+    let mainDetailNavigationBarText: String
 
     init(country: Country) {
         countryFlagImage = country.countryInfo?.flag ?? ""
@@ -26,5 +27,6 @@ struct MainDetailPresentation {
         todayCasesLabelText = "Today Cases: \(country.active ?? 0)"
         todayDeathsLabelText = "Today Deaths: \(country.todayDeaths ?? 0)"
         criticalCasesLabelText = "Critical Cases: \(country.critical ?? 0)"
+        mainDetailNavigationBarText = "\(country.country ?? "No Country!")"
     }
 }
