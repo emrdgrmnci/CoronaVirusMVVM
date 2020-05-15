@@ -40,9 +40,9 @@ extension NewsViewModel: NewsViewModelInterface {
     }
 
     func getAllNews() {
-        let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=a2626aaa3a26408f99619c7283401b30")!
+        let url = URL(string: "http://newsapi.org/v2/everything?q=corona&sortBy=publishedAt&apiKey=\(apiKey)")!
         service.getNews(url: url) { [weak self] (news) in
-            self?.news = news ?? []
+            self?.news = news?.news ?? []
             self?.delegate?.notifyTableView()
         }
     }

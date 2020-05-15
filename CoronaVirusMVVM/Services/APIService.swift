@@ -11,7 +11,7 @@ import Foundation
 protocol APIServiceProtocol {
     func getCountries(url: URL, completion: @escaping CallBack<[Country]?>)
     func getGlobalCases(url: URL, completion: @escaping CallBack<Global?>)
-    func getNews(url: URL, completion: @escaping CallBack<[News]?>)
+    func getNews(url: URL, completion: @escaping CallBack<NewsResponse?>)
 }
 
 class APIService: APIServiceProtocol {
@@ -53,7 +53,7 @@ class APIService: APIServiceProtocol {
 
     }
 
-    func getNews(url: URL, completion: @escaping CallBack<[News]?>) {
+    func getNews(url: URL, completion: @escaping CallBack<NewsResponse?>) {
 
         URLSession.shared.dataTask(with: url) { data, response, error in
 
@@ -61,10 +61,10 @@ class APIService: APIServiceProtocol {
                 print(error.localizedDescription)
             }
             else if let data = data {
-                let newsList = try? JSONDecoder().decode([News].self, from: data)
-
+                let newsList = try? JSONDecoder().decode(NewsResponse.self, from: data)
+                
                 if let newsList = newsList {
-                    completion(newsList.self)
+                    completion(newsList)
                 }
             }
         }.resume()

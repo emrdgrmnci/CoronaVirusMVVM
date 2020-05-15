@@ -8,6 +8,19 @@
 
 import Foundation
 
+struct NewsResponse : Codable {
+    let status : String?
+    let totalResults : Int?
+    let news : [News]?
+
+    enum CodingKeys: String, CodingKey {
+
+        case status = "status"
+        case totalResults = "totalResults"
+        case news = "articles"
+    }
+}
+
 struct News: Codable {
     let source : Source?
     let author : String?
