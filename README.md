@@ -7,6 +7,16 @@ Purpose of the project
 
 #### Powered by [NovelCovid](https://github.com/NovelCOVID/API) :star: 
 
+Here are the screens
+======================
+<p float="left">
+  <img src="ScreenImages/main.png" width="150" height= "300"/>&nbsp; 
+  <img src="ScreenImages/searchedmain.png" width="150" />&nbsp;
+  <img src="ScreenImages/maindetail.png" width="150" height= "300"/>&nbsp;
+  <img src="ScreenImages/news.png" width="150" />&nbsp;
+  <img src="ScreenImages/newsdetail.png" width="150" />&nbsp;
+  </br>  
+</p>
 
 ## Tech-stack :calling:
 
