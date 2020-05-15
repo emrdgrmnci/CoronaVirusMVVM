@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 class MainDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var confirmedCasesLabel: UILabel!
     @IBOutlet weak var totalDeathsLabel: UILabel!
@@ -18,12 +18,12 @@ class MainDetailViewController: UIViewController {
     @IBOutlet weak var todayCasesLabel: UILabel!
     @IBOutlet weak var todayDeathsLabel: UILabel!
     @IBOutlet weak var criticalCasesLabel: UILabel!
-
+    
     var detailViewModel: MainDetailViewModelInterface!
     private var networkReachability = NetworkReachability()
-
+    
     // MARK: - View's Lifecycle
-
+    
     override func viewDidAppear(_ animated: Bool) {
         //MARK: - NetworkReachability
         if !networkReachability.isReachable {
@@ -32,7 +32,7 @@ class MainDetailViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         detailViewModel.delegate = self

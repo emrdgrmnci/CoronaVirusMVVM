@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 struct MainDetailPresentation {
-
     let countryFlagImage: String
     let confirmedCasesLabelText: String
     let totalDeathsLabelText: String

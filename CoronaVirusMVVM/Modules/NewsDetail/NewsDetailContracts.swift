@@ -9,8 +9,7 @@
 import Foundation
 
 protocol NewsDetailViewModelDelegate: class {
-//     func prepareDetailViewInfos(_ presentation: NewsDetailPresentation)
-
+     func prepareDetailViewInfos(_ presentation: NewsDetailPresentation)
 }
 
 protocol NewsDetailViewModelInterface: class {

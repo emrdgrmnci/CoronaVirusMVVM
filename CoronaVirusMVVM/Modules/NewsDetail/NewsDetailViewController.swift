@@ -11,14 +11,19 @@ import Foundation
 import WebKit
 
 class NewsDetailViewController: UIViewController {
-
     @IBOutlet weak var webView: WKWebView!
-
-     var detailViewModel: NewsDetailViewModelInterface!
+    var detailViewModel: NewsDetailViewModelInterface!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://www.hackingwithswift.com")!
-        webView.load(URLRequest(url: url))
+        detailViewModel.delegate = self
+        detailViewModel.load()
+    }
+}
+
+extension NewsDetailViewController: NewsDetailViewModelDelegate {
+    func prepareDetailViewInfos(_ presentation: NewsDetailPresentation) {
+        guard let detailURL = URL(string: presentation.newsDetailURL) else { return }
+        webView.load(URLRequest(url: detailURL))
     }
 }

@@ -10,13 +10,13 @@ import Foundation
 
 class NewsDetailViewModel: NewsDetailViewModelInterface {
     weak var delegate: NewsDetailViewModelDelegate?
-
+    private let presentation: NewsDetailPresentation
 
     func load() {
-        
+        delegate?.prepareDetailViewInfos(presentation)
     }
 
     init(newsDetail: News) {
-
+        self.presentation = NewsDetailPresentation(news: newsDetail)
     }
 }
