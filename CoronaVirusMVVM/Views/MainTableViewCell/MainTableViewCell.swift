@@ -20,10 +20,10 @@ class MainTableViewCell: UITableViewCell {
         showAnimatedSkeleton()
 
     }
+
     func hideAnimation() {
         hideSkeleton()
     }
-
 
     func configure(with country: Country) {
         countryLabel.text = country.country
