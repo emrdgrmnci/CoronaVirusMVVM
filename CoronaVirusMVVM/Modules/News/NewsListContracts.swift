@@ -21,7 +21,6 @@ protocol NewsViewModelInterface: class {
 
 protocol NewsViewModelDelegate: class {
     func notifyTableView()
-//    func prepareWorldViewInfos(_ presentation: GlobalPresentation)
     func navigate(to route: NewsViewRoute)
 }
 
