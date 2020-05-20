@@ -145,7 +145,8 @@
 		296163162437FE3400C37010 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				296163172437FE4000C37010 /* Typealias.swift */,
+				47D5A9742475573800145A7B /* Typealias */,
+				47F70FEC243623AC00DC85D2 /* Presentations */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -232,6 +233,14 @@
 			path = CoronaVirusMVVMTests;
 			sourceTree = "<group>";
 		};
+		47D5A9742475573800145A7B /* Typealias */ = {
+			isa = PBXGroup;
+			children = (
+				296163172437FE4000C37010 /* Typealias.swift */,
+			);
+			path = Typealias;
+			sourceTree = "<group>";
+		};
 		47E4DA6F24376E53008E7850 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,9 +281,8 @@
 				296163162437FE3400C37010 /* Common */,
 				47E4DA6F24376E53008E7850 /* Supporting Files */,
 				47F70FDA2436149600DC85D2 /* Modules */,
-				47F70FE924361EFB00DC85D2 /* Models */,
+				47F70FE924361EFB00DC85D2 /* DTOs */,
 				47F70FE624361BC600DC85D2 /* Services */,
-				47F70FEC243623AC00DC85D2 /* Presentations */,
 				47F70FE12436199700DC85D2 /* Views */,
 			);
 			path = CoronaVirusMVVM;
@@ -338,14 +346,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		47F70FE924361EFB00DC85D2 /* Models */ = {
+		47F70FE924361EFB00DC85D2 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
 				47F70FEA24361F0500DC85D2 /* Country.swift */,
 				47F70FF22436A2E000DC85D2 /* Global.swift */,
 				47295CEF2440CE50002FB7D5 /* News.swift */,
 			);
-			path = Models;
+			path = DTOs;
 			sourceTree = "<group>";
 		};
 		47F70FEC243623AC00DC85D2 /* Presentations */ = {

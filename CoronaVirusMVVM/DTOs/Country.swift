@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Country: Codable {
+ struct Country: Codable {
     let country: String?
     let countryInfo: CountryInfo?
     let cases: Int?
