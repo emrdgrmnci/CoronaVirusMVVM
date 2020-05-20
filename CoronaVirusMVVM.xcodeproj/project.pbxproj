@@ -28,6 +28,7 @@
 		47966817246AE17F00401FDC /* MainListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47966816246AE17F00401FDC /* MainListContracts.swift */; };
 		47966819246AE2B700401FDC /* MainDetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47966818246AE2B700401FDC /* MainDetailContracts.swift */; };
 		4796681B246AE4AF00401FDC /* MainDetailPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4796681A246AE4AF00401FDC /* MainDetailPresentation.swift */; };
+		47D5A95C2475531500145A7B /* CoronaVirusMVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5A95B2475531500145A7B /* CoronaVirusMVVMTests.swift */; };
 		47F70FC724360A6900DC85D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F70FC624360A6900DC85D2 /* AppDelegate.swift */; };
 		47F70FC924360A6900DC85D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F70FC824360A6900DC85D2 /* SceneDelegate.swift */; };
 		47F70FCE24360A6900DC85D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F70FCC24360A6900DC85D2 /* Main.storyboard */; };
@@ -45,6 +46,16 @@
 		8AA5E30024682A8A00A40745 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5E2FF24682A8A00A40745 /* MainViewModel.swift */; };
 		8AA5E30224683F4C00A40745 /* MainViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5E30124683F4C00A40745 /* MainViewControllerBuilder.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		47D5A95E2475531500145A7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 47F70FBB24360A6900DC85D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47F70FC224360A6900DC85D2;
+			remoteInfo = CoronaVirusMVVM;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1849F7242C6D0A781BA4DE25 /* Pods-CoronaVirusMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusMVVM.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusMVVM/Pods-CoronaVirusMVVM.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +80,9 @@
 		47966818246AE2B700401FDC /* MainDetailContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailContracts.swift; sourceTree = "<group>"; };
 		4796681A246AE4AF00401FDC /* MainDetailPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailPresentation.swift; sourceTree = "<group>"; };
 		47B38FE12440EB5D00C196B7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		47D5A9592475531500145A7B /* CoronaVirusMVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoronaVirusMVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47D5A95B2475531500145A7B /* CoronaVirusMVVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaVirusMVVMTests.swift; sourceTree = "<group>"; };
+		47D5A95D2475531500145A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47F70FC324360A6900DC85D2 /* CoronaVirusMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F70FC624360A6900DC85D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47F70FC824360A6900DC85D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +105,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		47D5A9562475531500145A7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		47F70FC024360A6900DC85D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +223,15 @@
 			path = NewsDetail;
 			sourceTree = "<group>";
 		};
+		47D5A95A2475531500145A7B /* CoronaVirusMVVMTests */ = {
+			isa = PBXGroup;
+			children = (
+				47D5A95B2475531500145A7B /* CoronaVirusMVVMTests.swift */,
+				47D5A95D2475531500145A7B /* Info.plist */,
+			);
+			path = CoronaVirusMVVMTests;
+			sourceTree = "<group>";
+		};
 		47E4DA6F24376E53008E7850 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				47F70FC524360A6900DC85D2 /* CoronaVirusMVVM */,
+				47D5A95A2475531500145A7B /* CoronaVirusMVVMTests */,
 				47F70FC424360A6900DC85D2 /* Products */,
 				2293FA48E2B5A139C69FB018 /* Pods */,
 				186A20318632E5BC538D1BE9 /* Frameworks */,
@@ -229,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				47F70FC324360A6900DC85D2 /* CoronaVirusMVVM.app */,
+				47D5A9592475531500145A7B /* CoronaVirusMVVMTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,6 +377,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		47D5A9582475531500145A7B /* CoronaVirusMVVMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47D5A9602475531500145A7B /* Build configuration list for PBXNativeTarget "CoronaVirusMVVMTests" */;
+			buildPhases = (
+				47D5A9552475531500145A7B /* Sources */,
+				47D5A9562475531500145A7B /* Frameworks */,
+				47D5A9572475531500145A7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47D5A95F2475531500145A7B /* PBXTargetDependency */,
+			);
+			name = CoronaVirusMVVMTests;
+			productName = CoronaVirusMVVMTests;
+			productReference = 47D5A9592475531500145A7B /* CoronaVirusMVVMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		47F70FC224360A6900DC85D2 /* CoronaVirusMVVM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47F70FD724360A6C00DC85D2 /* Build configuration list for PBXNativeTarget "CoronaVirusMVVM" */;
@@ -370,10 +420,14 @@
 		47F70FBB24360A6900DC85D2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Ali Emre Degirmenci";
 				TargetAttributes = {
+					47D5A9582475531500145A7B = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 47F70FC224360A6900DC85D2;
+					};
 					47F70FC224360A6900DC85D2 = {
 						CreatedOnToolsVersion = 11.4;
 					};
@@ -393,11 +447,19 @@
 			projectRoot = "";
 			targets = (
 				47F70FC224360A6900DC85D2 /* CoronaVirusMVVM */,
+				47D5A9582475531500145A7B /* CoronaVirusMVVMTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		47D5A9572475531500145A7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		47F70FC124360A6900DC85D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,6 +515,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		47D5A9552475531500145A7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47D5A95C2475531500145A7B /* CoronaVirusMVVMTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		47F70FBF24360A6900DC85D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,6 +564,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		47D5A95F2475531500145A7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47F70FC224360A6900DC85D2 /* CoronaVirusMVVM */;
+			targetProxy = 47D5A95E2475531500145A7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		47F70FCC24360A6900DC85D2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -514,6 +592,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		47D5A9612475531500145A7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 554X8TL4T7;
+				INFOPLIST_FILE = CoronaVirusMVVMTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pairs.CoronaVirusMVVMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoronaVirusMVVM.app/CoronaVirusMVVM";
+			};
+			name = Debug;
+		};
+		47D5A9622475531500145A7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 554X8TL4T7;
+				INFOPLIST_FILE = CoronaVirusMVVMTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pairs.CoronaVirusMVVMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoronaVirusMVVM.app/CoronaVirusMVVM";
+			};
+			name = Release;
+		};
 		47F70FD524360A6C00DC85D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -672,6 +792,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		47D5A9602475531500145A7B /* Build configuration list for PBXNativeTarget "CoronaVirusMVVMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47D5A9612475531500145A7B /* Debug */,
+				47D5A9622475531500145A7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		47F70FBE24360A6900DC85D2 /* Build configuration list for PBXProject "CoronaVirusMVVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
