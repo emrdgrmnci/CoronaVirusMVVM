@@ -70,8 +70,8 @@ class MainViewController: UIViewController {
     //MARK: - NetworkReachability
     func networkControl() {
         if !networkReachability.isReachable {
-            let alert = UIAlertController(title: "Oops!", message: "You're offline! Check your network connection.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Oops!", message: NSLocalizedString("You're offline! Check your network connection.", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -103,7 +103,7 @@ extension MainViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Countries and Deaths"
+        return NSLocalizedString("Countries and Deaths", comment: "")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
