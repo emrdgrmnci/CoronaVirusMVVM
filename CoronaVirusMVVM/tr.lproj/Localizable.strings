@@ -1,7 +1,30 @@
 /* 
-  'Localizable.strings
-  CoronaVirusMVVM
+ Localizable.strings
+ CoronaVirusMVVM
 
-  Created by Ali Emre Değirmenci on 20.05.2020.
-  Copyright © 2020 Ali Emre Degirmenci. All rights reserved.
-*/
+ Created by Ali Emre Değirmenci on 21.05.2020.
+ Copyright © 2020 Ali Emre Degirmenci. All rights reserved.
+ */
+
+"Worldwide"                                     = "Dünya Genelinde";
+"Case: %@"                                          = "Hasta: %@";
+"Deaths: %d"                                        = "Ölüm: %d";
+"Recovered: %d"                                     = "İyileşen: %d";
+"Update"                                    = "Güncelleme";
+"Active: %d"                                        = "Aktif: %d";
+"Affected Countries: %d"                                = "Etkilenen Ülkeler: %d";
+"You're offline! Check your network connection." = "Çevrimdışısın! İnternet bağlantını kontrol et.";
+"Ok"                                                = "Tamam";
+"Countries and Deaths"                              = "Ülkeler ve Ölümler";
+"No Title!"                                         = "Başlık Yok!";
+"Confirmed Cases: %d"                                  = "Onaylanan Hastalar: %d";
+"Total Deaths: %d"                                     = "Toplam Ölüm: %d";
+"Today Recovered: %d"                                      = "Bugün İyileşen: %d";
+"Today Deaths: %d"                                         = "Bugünki Ölümler: %d";
+"Today Cases: %d" = "Bugünki Hastalar: %d";
+"Critical Cases: %d"                                       = "Kritik Hastalar: %d";
+"No Country!"                                       = "Ülke yok!";
+"Cases: %d" = "Hastalar: %d";
+"Published" = "Yayınlandı";
+"NEWS" = "HABERLER";
+"Updated at: %@" = "Güncellendi: %@";

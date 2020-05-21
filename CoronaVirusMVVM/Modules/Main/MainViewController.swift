@@ -59,7 +59,7 @@ class MainViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        worldWideLabel.text = "Worldwide"
+        worldWideLabel.text = NSLocalizedString("Worldwide", comment: "")
         tableView.reloadData()
     }
 

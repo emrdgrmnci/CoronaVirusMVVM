@@ -21,12 +21,12 @@ struct MainDetailPresentation {
 
     init(country: Country) {
         countryFlagImage = country.countryInfo?.flag ?? ""
-        confirmedCasesLabelText = "Confirmed Cases: \(country.cases ?? 0)"
-        totalDeathsLabelText = "Total Deaths: \(country.deaths ?? 0)"
-        totalRecoveredLabelText = "Today Recovered: \(country.recovered ?? 0)"
-        todayCasesLabelText = "Today Cases: \(country.active ?? 0)"
-        todayDeathsLabelText = "Today Deaths: \(country.todayDeaths ?? 0)"
-        criticalCasesLabelText = "Critical Cases: \(country.critical ?? 0)"
+        confirmedCasesLabelText = String(format: NSLocalizedString("Confirmed Cases: %d", comment: ""), arguments: [country.cases ?? 0])
+        totalDeathsLabelText = String(format: NSLocalizedString("Total Deaths: %d", comment: ""), arguments: [country.deaths ?? 0])
+        totalRecoveredLabelText = String(format: NSLocalizedString("Today Recovered: %d", comment: ""), arguments: [country.recovered ?? 0])
+        todayCasesLabelText = String(format: NSLocalizedString("Today Cases: %d", comment: ""), arguments: [country.active ?? 0])
+        todayDeathsLabelText = String(format: NSLocalizedString("Today Deaths: %d", comment: ""), arguments: [country.todayDeaths ?? 0])
+        criticalCasesLabelText = String(format: NSLocalizedString("Critical Cases: %d", comment: ""), arguments: [country.critical ?? 0])
         mainDetailNavigationBarText = "\(country.country ?? "No Country!")"
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct GlobalPresentation {
-     
+
     let worldCasesLabelText: String
     let worldDeathsLabelText: String
     let worldRecoveredLabelText: String
@@ -17,15 +17,15 @@ struct GlobalPresentation {
     let worldAffectedCountriesLabelText: String
     private let updated: Double
     var worldUpdatedLabelText: String {
-        return "Updated at: \(getDate(time: updated))"
+         return String(format: NSLocalizedString("Updated at: %@", comment: ""), arguments: [getDate(time: updated)])
     }
-    
+
     init(global: Global) {
-        worldCasesLabelText = "Cases: \(global.active ?? 0)"
-        worldDeathsLabelText = "Deaths: \(global.deaths ?? 0)"
-        worldRecoveredLabelText = "Recovered: \(global.recovered ?? 0)"
-        worldActiveLabelText = "Active: \(global.active ?? 0)"
-        worldAffectedCountriesLabelText = "Affected Countries: \(global.affectedCountries ?? 0)"
+        worldCasesLabelText = String(format: NSLocalizedString("Cases: %d", comment: ""), arguments: [global.cases ?? 0])
+        worldDeathsLabelText = String(format: NSLocalizedString("Deaths: %d", comment: ""), arguments: [global.deaths ?? 0])
+        worldRecoveredLabelText = String(format: NSLocalizedString("Recovered: %d", comment: ""), arguments: [global.recovered ?? 0])
+        worldActiveLabelText = String(format: NSLocalizedString("Active: %d", comment: ""), arguments: [global.active ?? 0])
+        worldAffectedCountriesLabelText = String(format: NSLocalizedString("Affected Countries: %d", comment: ""), arguments: [global.affectedCountries ?? 0])
         updated = Double(global.updated ?? 0)
     }
     
