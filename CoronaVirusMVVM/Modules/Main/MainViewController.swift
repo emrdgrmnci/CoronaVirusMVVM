@@ -18,12 +18,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var coronaImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
 
-    @IBOutlet private weak var worldCasesLabel: UILabel!
-    @IBOutlet private weak var worldDeathsLabel: UILabel!
-    @IBOutlet private weak var worldRecoveredLabel: UILabel!
-    @IBOutlet private weak var worldUpdatedLabel: UILabel!
-    @IBOutlet private weak var worldActiveLabel: UILabel!
-    @IBOutlet private weak var worldAffectedCountriesLabel: UILabel!
+    @IBOutlet internal weak var worldCasesLabel: UILabel!
+    @IBOutlet internal weak var worldDeathsLabel: UILabel!
+    @IBOutlet internal weak var worldRecoveredLabel: UILabel!
+    @IBOutlet internal weak var worldUpdatedLabel: UILabel!
+    @IBOutlet internal weak var worldActiveLabel: UILabel!
+    @IBOutlet internal weak var worldAffectedCountriesLabel: UILabel!
 
     var viewModel: MainViewModelInterface! {
         didSet {
