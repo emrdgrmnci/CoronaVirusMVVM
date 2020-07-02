@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  CoronaVirusMVVM
+
+  Created by Ali Emre Değirmenci on 21.05.2020.
+  Copyright © 2020 Ali Emre Degirmenci. All rights reserved.
+*/
+
+"Worldwide" = "Worldwide";
+"Case: %@" = "Case: %@";
+"Deaths: %d" = "Deaths: %d";
+"Recovered: %d" = "Recovered: %d";
+"Update" = "Update";
+"Active: %d" = "Active: %d";
+"Affected Countries: %d" = "Affected Countries: %d";
+"You're offline! Check your network connection." = "You're offline! Check your network connection.";
+"Ok" = "Ok";
+"Countries and Deaths" = "Countries and Deaths";
+"No Title!" = "No Title!";
+"Confirmed Cases: %d" = "Confirmed Cases: %d";
+"Total Deaths: %d" = "Total Deaths: %d";
+"Today Recovered: %d" = "Today Recovered: %d";
+"Today Deaths: %d" = "Today Deaths: %d";
+"Today Cases: %d" = "Today Cases: %d";
+"Critical Cases: %d" = "Critical Cases: %d";
+"No Country!" = "No Country!";
+"Cases: %d" = "Cases: %d";
+"Published" = "Published";
+"NEWS" = "NEWS";
+"Updated at: %@" = "Updated at: %@";
+ 

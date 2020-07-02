@@ -1,0 +1,60 @@
+
+/* Class = "UILabel"; text = "Published"; ObjectID = "1bj-Ma-tBP"; */
+"1bj-Ma-tBP.text" = "Published";
+
+/* Class = "UILabel"; text = "Confirmed Cases:"; ObjectID = "65b-sy-0Uj"; */
+"65b-sy-0Uj.text" = "Confirmed Cases:";
+
+/* Class = "UILabel"; text = "Cases:"; ObjectID = "DJX-Ch-ch0"; */
+"DJX-Ch-ch0.text" = "Cases:";
+
+/* Class = "UILabel"; text = "Active:"; ObjectID = "J9j-jw-NVB"; */
+"J9j-jw-NVB.text" = "Active:";
+
+/* Class = "UILabel"; text = "Today Cases:"; ObjectID = "U2W-E8-2tt"; */
+"U2W-E8-2tt.text" = "Today Cases:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VmT-DO-sp4"; */
+"VmT-DO-sp4.text" = "Label";
+
+/* Class = "UILabel"; text = "Source "; ObjectID = "W9Y-5i-WYG"; */
+"W9Y-5i-WYG.text" = "Source ";
+
+/* Class = "UILabel"; text = "Today Deaths:"; ObjectID = "X8X-bZ-NyS"; */
+"X8X-bZ-NyS.text" = "Today Deaths:";
+
+/* Class = "UITabBarItem"; title = "Global"; ObjectID = "Xaf-zp-a7S"; */
+"Xaf-zp-a7S.title" = "Global";
+
+/* Class = "UILabel"; text = "Worldwide"; ObjectID = "dOQ-Pg-Qdr"; */
+"dOQ-Pg-Qdr.text" = "Worldwide";
+
+/* Class = "UILabel"; text = "News ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews Content"; ObjectID = "dqL-Yh-QGD"; */
+"dqL-Yh-QGD.text" = "News ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews ContentNews Content";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fwG-lq-g1p"; */
+"fwG-lq-g1p.text" = "Label";
+
+/* Class = "UILabel"; text = "Updated:"; ObjectID = "hbX-Ls-Tp8"; */
+"hbX-Ls-Tp8.text" = "Updated:";
+
+/* Class = "UILabel"; text = "Critical Cases"; ObjectID = "hj7-St-the"; */
+"hj7-St-the.text" = "Critical Cases";
+
+/* Class = "UILabel"; text = "Deaths:"; ObjectID = "mXe-oS-S9i"; */
+"mXe-oS-S9i.text" = "Deaths:";
+
+/* Class = "UILabel"; text = "Affected Countries:"; ObjectID = "n6K-Up-GzJ"; */
+"n6K-Up-GzJ.text" = "Affected Countries:";
+
+/* Class = "UILabel"; text = "Recovered:"; ObjectID = "qno-LD-F7c"; */
+"qno-LD-F7c.text" = "Recovered:";
+
+/* Class = "UILabel"; text = "Total Recovered:"; ObjectID = "r2M-yL-uQy"; */
+"r2M-yL-uQy.text" = "Total Recovered:";
+
+/* Class = "UITabBarItem"; title = "News"; ObjectID = "rs4-f5-mCZ"; */
+"rs4-f5-mCZ.title" = "News";
+
+/* Class = "UILabel"; text = "Total Deaths:"; ObjectID = "s5h-ID-0Na"; */
+"s5h-ID-0Na.text" = "Total Deaths:";
