@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Detailed data presentation
 protocol MainDetailViewModelDelegate: class {
      func prepareDetailViewInfos(_ presentation: MainDetailPresentation)
 

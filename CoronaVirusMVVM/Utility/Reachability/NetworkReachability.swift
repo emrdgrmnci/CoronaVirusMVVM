@@ -11,30 +11,29 @@ import Reachability
 
 class NetworkReachability {
 
-   private let internetReachability : Reachability?
-   var isReachable : Bool = false
+    private let internetReachability : Reachability?
+    var isReachable : Bool = false
 
-   init() {
+    init() {
+        self.internetReachability = try? Reachability.init()
+        do{
+            try self.internetReachability?.startNotifier()
+            NotificationCenter.default.addObserver(self, selector: #selector(self.handleNetworkChange), name: .reachabilityChanged, object: internetReachability)
+        }
+        catch {
+            print("could not start reachability notifier")
+        }
+    }
 
-       self.internetReachability = try? Reachability.init()
-       do{
-           try self.internetReachability?.startNotifier()
-           NotificationCenter.default.addObserver(self, selector: #selector(self.handleNetworkChange), name: .reachabilityChanged, object: internetReachability)
-       }
-       catch {
-        print("could not start reachability notifier")
-       }
-   }
+    @objc private func handleNetworkChange(notify: Notification) {
 
-   @objc private func handleNetworkChange(notify: Notification) {
-
-       let reachability = notify.object as! Reachability
-       if reachability.connection != .unavailable {
-           self.isReachable = true
-       }
-       else {
-           self.isReachable = false
-       }
-       print("Internet Connected : \(self.isReachable)") 
-   }
+        let reachability = notify.object as! Reachability
+        if reachability.connection != .unavailable {
+            self.isReachable = true
+        }
+        else {
+            self.isReachable = false
+        }
+        print("Internet Connected : \(self.isReachable)")
+    }
 }

@@ -15,7 +15,6 @@ class MainViewControllerBuilder {
         let service = APIService()
         let viewModel = MainViewModel(service: service)
         view.viewModel = viewModel
-         
         return view
     }
 }

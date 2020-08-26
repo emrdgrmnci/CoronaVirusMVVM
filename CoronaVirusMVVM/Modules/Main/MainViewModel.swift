@@ -17,7 +17,8 @@ class MainViewModel {
     var filteredCountries: [Country]
     
     var isSearching: Bool = false
-    
+
+    //Dependency Injection
     init(service: APIServiceProtocol) {
         self.service = service
         self.countries = []
@@ -46,7 +47,7 @@ extension MainViewModel: MainViewModelInterface {
     func country(index: Int) -> Country {
         return isSearching ? filteredCountries[index] : countries[index]
     }
-    
+
     // MARK - Lifcycle Methods
     func viewWillDisappear() {
         isSearching = false

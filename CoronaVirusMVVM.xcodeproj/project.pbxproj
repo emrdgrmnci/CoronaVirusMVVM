@@ -167,9 +167,9 @@
 		47295CE22440C5C0002FB7D5 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				47253BC82447461E00F914F0 /* Reachability */,
 				47295CE62440C78C002FB7D5 /* Constants */,
 				47295CE32440C5C7002FB7D5 /* Extensions */,
+				47253BC82447461E00F914F0 /* Reachability */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -282,14 +282,14 @@
 		47F70FC524360A6900DC85D2 /* CoronaVirusMVVM */ = {
 			isa = PBXGroup;
 			children = (
-				47295CE22440C5C0002FB7D5 /* Utility */,
 				296163162437FE3400C37010 /* Common */,
-				47E4DA6F24376E53008E7850 /* Supporting Files */,
-				47F70FDA2436149600DC85D2 /* Modules */,
 				47F70FE924361EFB00DC85D2 /* DTOs */,
-				47F70FE624361BC600DC85D2 /* Services */,
-				47F70FE12436199700DC85D2 /* Views */,
 				47F9E7312475F75000842AC3 /* Localizable.strings */,
+				47F70FDA2436149600DC85D2 /* Modules */,
+				47F70FE624361BC600DC85D2 /* Services */,
+				47E4DA6F24376E53008E7850 /* Supporting Files */,
+				47295CE22440C5C0002FB7D5 /* Utility */,
+				47F70FE12436199700DC85D2 /* Views */,
 			);
 			path = CoronaVirusMVVM;
 			sourceTree = "<group>";
@@ -330,8 +330,8 @@
 		47F70FE12436199700DC85D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				47295CEC2440CCD5002FB7D5 /* NewsTableViewCell */,
 				47F70FE22436199B00DC85D2 /* MainTableViewCell */,
+				47295CEC2440CCD5002FB7D5 /* NewsTableViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";

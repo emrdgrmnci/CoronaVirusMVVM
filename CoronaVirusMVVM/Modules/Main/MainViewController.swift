@@ -25,8 +25,10 @@ class MainViewController: UIViewController {
     @IBOutlet internal weak var worldActiveLabel: UILabel!
     @IBOutlet internal weak var worldAffectedCountriesLabel: UILabel!
 
+    // ViewModel ve View arası data değişikliğini Observe et
     var viewModel: MainViewModelInterface! {
         didSet {
+            //notify metotlarına ulaşıyoruz
             viewModel.delegate = self
         }
     }
@@ -47,6 +49,7 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
+        //SkeletonView animasyonu gözüksün diye 2 sn. sonra reload ediyor
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.shouldAnimate = false
             self.tableView.reloadData()
@@ -176,6 +179,8 @@ extension MainViewController: MainViewModelDelegate{
         }
     }
 
+    //Search aktifse global bilgileri gösteren stackViewi kapat
+    //sadece girilen kelimeye göre tableı listele
     func notifyViewAfterSearchTextDidChange() {
         stackView.layoutIfNeeded()
         stackView.isHidden = true

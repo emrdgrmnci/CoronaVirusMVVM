@@ -48,7 +48,7 @@ extension NewsViewModel: NewsViewModelInterface {
     }
 
     func viewWillDisappear() {
-        delegate?.notifyTableView()
+        delegate?.notifyTableView() 
     }
 }
 

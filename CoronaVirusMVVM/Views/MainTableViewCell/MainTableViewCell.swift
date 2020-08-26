@@ -16,9 +16,7 @@ class MainTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
         showAnimatedSkeleton()
-
     }
 
     func hideAnimation() {

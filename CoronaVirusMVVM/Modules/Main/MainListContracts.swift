@@ -1,5 +1,5 @@
 //
-//  MainContracts.swift
+//  MainListContracts.swift
 //  CoronaVirusMVVM
 //
 //  Created by Ali Emre Değirmenci on 12.05.2020.
@@ -8,6 +8,7 @@
 
 import Foundation
 
+// View tarafından ViewModel'a göndermemiz gerekenler
 protocol MainViewModelInterface: class {
     var delegate: MainViewModelDelegate? { get set }
     var countryCount: Int { get }
@@ -25,12 +26,13 @@ protocol MainViewModelInterface: class {
     func viewWillDisappear()
 }
 
+// notify metotları
 protocol MainViewModelDelegate: class {
-    func notifyTableView()
-    func notifyViewAfterSearchTextDidChange()
-    func notifyViewAfterSearchDidEnd()
+    func notifyTableView()//TableView reload data
+    func notifyViewAfterSearchTextDidChange()// search başlayınca stackViewu gizle tableViewu full ekran göster
+    func notifyViewAfterSearchDidEnd()// search bitince stackViewu göster tableViewu full ekran göster
     func prepareWorldViewInfos(_ presentation: GlobalPresentation)
-    func navigate(to route: MainViewRoute)
+    func navigate(to route: MainViewRoute)//mainview'dan detail ekranına geçiş esnasında taşınan veriler için
 }
 
 enum MainViewRoute {

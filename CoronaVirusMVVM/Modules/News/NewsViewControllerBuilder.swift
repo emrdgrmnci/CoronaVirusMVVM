@@ -15,7 +15,6 @@ class NewsViewControllerBuilder {
         let service = APIService()
         let viewModel = NewsViewModel(service: service)
         view.viewModel = viewModel
-
         return view
     }
 }
