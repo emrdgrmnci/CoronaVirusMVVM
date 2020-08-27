@@ -26,7 +26,8 @@ protocol MainViewModelInterface: class {
     func viewWillDisappear()
 }
 
-// notify metotları
+// ViewModel ile işler yapınca View'u notify edeceğiz
+// View bizim delegemiz
 protocol MainViewModelDelegate: class {
     func notifyTableView()//TableView reload data
     func notifyViewAfterSearchTextDidChange()// search başlayınca stackViewu gizle tableViewu full ekran göster

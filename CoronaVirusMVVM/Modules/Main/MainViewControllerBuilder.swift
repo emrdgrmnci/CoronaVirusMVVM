@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewControllerBuilder {
+final class MainViewControllerBuilder {
     static func make() -> MainViewController {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let view = storyBoard.instantiateViewController(identifier: "MainViewController") as! MainViewController
