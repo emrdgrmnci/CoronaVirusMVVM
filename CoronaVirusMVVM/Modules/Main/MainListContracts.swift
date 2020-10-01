@@ -8,7 +8,6 @@
 
 import Foundation
 
-// View tarafından ViewModel'a göndermemiz gerekenler
 protocol MainViewModelInterface: class {
     var delegate: MainViewModelDelegate? { get set }
     var countryCount: Int { get }
@@ -26,8 +25,7 @@ protocol MainViewModelInterface: class {
     func viewWillDisappear()
 }
 
-// ViewModel ile işler yapınca View'u notify edeceğiz
-// View bizim delegemiz
+
 protocol MainViewModelDelegate: class {
     func notifyTableView()//TableView reload data
     func notifyViewAfterSearchTextDidChange()// search başlayınca stackViewu gizle tableViewu full ekran göster

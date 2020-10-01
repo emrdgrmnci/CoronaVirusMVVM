@@ -8,8 +8,6 @@
 
 import Foundation
 
-// Main ekranı açıldığında en tepede gözükecek veriler
-// Presentationda tutuluyor
 struct GlobalPresentation {
     let worldCasesLabelText: String
     let worldDeathsLabelText: String

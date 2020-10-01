@@ -24,7 +24,6 @@ class MainViewModel {
         self.countries = []
         self.filteredCountries = []
     }
-    
 }
 
 extension MainViewModel: MainViewModelInterface {

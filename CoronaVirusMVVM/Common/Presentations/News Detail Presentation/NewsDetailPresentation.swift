@@ -10,7 +10,6 @@ import Foundation
 import WebKit
 import Foundation
 
-//NewsDetailda webview açıldığında kullanılacak veriler
 struct NewsDetailPresentation {
     let newsDetailURL: String
     let newsDetailSource: String

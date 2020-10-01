@@ -9,7 +9,6 @@
 import UIKit
 
 final class MainDetailControllerBuilder {
-
     static func make(with viewModel: MainDetailViewModelInterface) -> MainDetailViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "MainDetailViewController") as! MainDetailViewController
