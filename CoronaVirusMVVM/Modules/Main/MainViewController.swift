@@ -105,16 +105,11 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as? MainTableViewCell else {
             fatalError("MainTableViewCell not found")
         }
-
         if shouldAnimate {
             cell.showAnimatedGradientSkeleton()
         } else {
             cell.hideAnimation()
         }
-        
-        let country = viewModel.country(index: indexPath.row)
-        cell.configure(with: country)
-
         return cell
     }
 }
