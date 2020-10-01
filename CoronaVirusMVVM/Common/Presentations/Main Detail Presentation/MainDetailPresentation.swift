@@ -9,9 +9,6 @@
 import Foundation
 import UIKit
 
-// MainDetail ekranına geçtiğimiz zaman detayda gözükecek veriler
-// Presentationda tutuluyor
-
 struct MainDetailPresentation {
     let countryFlagImage: String
     let confirmedCasesLabelText: String
