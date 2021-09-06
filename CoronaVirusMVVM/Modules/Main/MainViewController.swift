@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     @IBOutlet internal weak var worldActiveLabel: UILabel!
     @IBOutlet internal weak var worldAffectedCountriesLabel: UILabel!
 
-    // ViewModel ve View arası data değişikliğini Observe et
+
     var viewModel: MainViewModelInterface! {
         didSet {
             //notify metotlarına ulaşıyoruz
@@ -49,7 +49,6 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        //SkeletonView animasyonu gözüksün diye 2 sn. sonra reload ediyor
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.shouldAnimate = false
             self.tableView.reloadData()
@@ -105,16 +104,11 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as? MainTableViewCell else {
             fatalError("MainTableViewCell not found")
         }
-
         if shouldAnimate {
             cell.showAnimatedGradientSkeleton()
         } else {
             cell.hideAnimation()
         }
-        
-        let country = viewModel.country(index: indexPath.row)
-        cell.configure(with: country)
-
         return cell
     }
 }
@@ -174,6 +168,7 @@ extension MainViewController: UISearchBarDelegate {
     }
 }
 
+//MARK: - MainViewModelDelegate
 extension MainViewController: MainViewModelDelegate{
     func notifyTableView() {
         DispatchQueue.main.async {
@@ -181,8 +176,6 @@ extension MainViewController: MainViewModelDelegate{
         }
     }
 
-    //Search aktifse global bilgileri gösteren stackViewi kapat
-    //sadece girilen kelimeye göre tableı listele
     func notifyViewAfterSearchTextDidChange() {
         stackView.layoutIfNeeded()
         stackView.isHidden = true

@@ -30,7 +30,7 @@ class CoronaVirusMVVMTests: XCTestCase {
 
         guard let jsonData = json.data(using: .utf8) else { return }
         let corona = try! JSONDecoder().decode(Country.self, from: jsonData)
-        
+
         XCTAssertEqual(corona.deaths, 58106)
         XCTAssertEqual(corona.critical, 633)
         XCTAssertEqual(corona.deathsPerOneMillion, 680)
