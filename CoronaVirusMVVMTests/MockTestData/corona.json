@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+
+
+
+{
+  "country": "Turkey",
+  "cases": 6498054,
+  "todayCases": 0,
+  "deaths": 58106,
+  "todayDeaths": 0,
+  "recovered": 5930665,
+  "active": 509283,
+  "critical": 633,
+  "casesPerOneMillion": 76083,
+  "deathsPerOneMillion": 680,
+  "updated": 1630951481607
+}
